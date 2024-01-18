@@ -8,11 +8,12 @@ body{
     background-repeat: no-repeat;
     
 }
-.container {
+.card-container {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     
 }
 .product-inner-box .icons{
