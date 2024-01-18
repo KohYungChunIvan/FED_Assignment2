@@ -1,3 +1,5 @@
+/*DONE BY : Koh Yung Chun Ivan, S10262491*/
+
 @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 body{
@@ -69,6 +71,11 @@ body{
     width: 100%;
     opacity: 0;
     transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.btn-white {
+    background-color: #c2a8a8;
+    color: #fff;
 }
 
 .product-box.is-hover .cart-btn{

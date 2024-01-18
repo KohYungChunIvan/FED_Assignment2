@@ -1,3 +1,5 @@
+// DONE BY: Koh Yung Chun Ivan, S10262491
+
 var cards = document.querySelectorAll('.product-box');
 
 [...cards].forEach((card)=>{

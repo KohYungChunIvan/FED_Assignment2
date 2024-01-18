@@ -49,3 +49,25 @@ https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-adrian-ba
 https://cdn-images.farfetch-contents.com/19/42/56/68/19425668_43499859_1000.jpg
 
 https://cdn-images.farfetch-contents.com/22/28/43/95/22284395_52104092_1000.jpg
+
+https://cdn-images.farfetch-contents.com/21/22/88/11/21228811_51101821_1000.jpg
+
+https://cdn-images.farfetch-contents.com/20/13/72/46/20137246_45320278_1000.jpg
+
+https://s7d2.scene7.com/is/image/Coach/cm582_b4nq4_a0?fmt=jpg&wid=711&hei=888&qlt=80%2C1&op_sharpen=0&resMode=bicub&op_usm=5%2C0.2%2C0%2C0&iccEmbed=0&fit=vfit
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-side-trunk-mm-handbags--M46907_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://cdn-images.farfetch-contents.com/18/46/43/39/18464339_39601277_1000.jpg
+
+https://cdn-images.farfetch-contents.com/19/31/68/61/19316861_42690056_1000.jpg
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-bandoulière-20-monogram-empreinte-leather-handbags--M46484_PM2_Front%20view.png?wid=4096&hei=4096
+
+https://media.gucci.com/style/DarkGray_Center_0_0_1200x1200/1659974412/446744_DTDIT_9022_001_055_0000_Light-GG-Marmont-matelass-mini-bag.jpg
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-twist-pm-epi-leather-handbags--M22373_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-petite-malle-capitale-monogram-handbags--M46755_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://s7d2.scene7.com/is/image/Coach/cm424_lhw8m_a0?fmt=jpg&wid=711&hei=888&qlt=80%2C1&op_sharpen=0&resMode=bicub&op_usm=5%2C0.2%2C0%2C0&iccEmbed=0&fit=vfit
