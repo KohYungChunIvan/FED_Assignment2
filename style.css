@@ -159,6 +159,11 @@ footer {
 }
 
 
+.row {
+    justify-content: center;
+    margin: 20px;
+}
+
 @media(max-width: 991px){
     .sidebar{
         background-color: rgba(0, 0, 0, 0.15);

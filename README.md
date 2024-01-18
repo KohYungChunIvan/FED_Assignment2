@@ -31,3 +31,21 @@ https://www.dior.com/couture/ecommerce/media/catalog/product/5/S/1701194770_1ADB
 https://www.chanel.com/images/t_zoomfshacc/f_auto/classic-handbag-multicolor-tweed-gold-tone-metal-tweed-gold-tone-metal-packshot-artistique-vue2-a01112b14971ns986-9530082525214.jpg
 
 https://assets.burberry.com/is/image/Burberryltd/D68F00A9-942A-4FBB-BE1D-A5DB50F32018?$BBY_V3_SL_1.36$&wid=581&hei=788
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-discovery-backpack-pm-monogram-eclipse-bags--M22558_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-montsouris-backpack-monogram-eclipse-bags--M46683_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-takeoff-backpack-lv-aerogram-bags--M22503_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://image.harrods.com/brunello-cucinelli-grained-leather-backpack_20869947_46668272_2048.jpg
+
+https://cdn-images.farfetch-contents.com/17/67/76/99/17677699_37037582_1000.jpg
+
+https://balenciaga.dam.kering.com/m/6edcbc26c93f4d00/Large-713044210HH1061_F.jpg?v=3
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-adrian-backpack-taiga-bags--M30857_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://cdn-images.farfetch-contents.com/19/42/56/68/19425668_43499859_1000.jpg
+
+https://cdn-images.farfetch-contents.com/22/28/43/95/22284395_52104092_1000.jpg
