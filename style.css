@@ -1,7 +1,7 @@
 @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 body{
-    background:  rgba(241, 218, 230, 0.3);
+    background:  rgba(226, 217, 217, 0.3);
     background-blend-mode: multiply;
     background-position: center;
     background-size: cover;
@@ -15,6 +15,25 @@ body{
     align-items: center;
     justify-content: space-between;
     
+}
+.product-inner-box .icons{
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    top: -3%;
+    transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.product-inner-box .icons a{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #fff;
 }
 
 
@@ -65,24 +84,24 @@ body{
     position: absolute;
     bottom: 20px;
     text-align: center;
-    width: 100%;
-    opacity: 0;
-    transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
-.product-box.is-hover .cart-btn{
-    opacity: 1;
+.navbar {
+    background-color: white; /* Set navbar background to white */
 }
-
-
 
 .navbar-brand,
-.offcanvas-body
 .nav-link {
     color: black !important; /* Set navbar brand and link color to black */
 }
 
 /* You may also need to adjust the hover and active link styles */
+.navbar-brand:hover,
+.nav-link:hover,
+.nav-link.active {
+    color: gray !important; /* Change color to gray on hover and for active link */
+}
+
 
 
 .c-item {
@@ -100,10 +119,4 @@ body{
         background-color: rgba(0, 0, 0, 0.15);
         backdrop-filter: blur(10px);
     }
-    .offcanvas-body
-    .nav-link {
-        color: rgb(255, 255, 255) !important; /* Set navbar brand and link color to black */
-    }
-
-    
 }

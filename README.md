@@ -26,3 +26,9 @@ Reference:
 https://www.thebagcreature.com/cdn/shop/files/The-Bag-Creature-Long-Weekend-Morro-Backpack-1.jpg?v=1701235909&width=2800
 
 https://www.thebagcreature.com/cdn/shop/files/The-Bag-Creature-Sympl-Studios.jpg?v=1703830997&width=2800
+
+https://www.mukama.com/en/secrid-twinwallet-vintage
+
+https://www.thebagcreature.com/products/long-weekend-morro-convertible-backpack
+
+https://tangs.com/product/logo-plaque-envelope-top-handle-bag-black?#
