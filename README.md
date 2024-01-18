@@ -23,6 +23,11 @@ Contact Us (ContactUs.html): The Contact Us page will serve as a hub for user in
 
 
 Reference:
-https://www.thebagcreature.com/cdn/shop/files/The-Bag-Creature-Long-Weekend-Morro-Backpack-1.jpg?v=1701235909&width=2800
 
-https://www.thebagcreature.com/cdn/shop/files/The-Bag-Creature-Sympl-Studios.jpg?v=1703830997&width=2800
+https://assets.burberry.com/is/image/Burberryltd/D68F00A9-942A-4FBB-BE1D-A5DB50F32018?$BBY_V3_UNSHARP_SL_1$&wid=4000&hei=4000
+
+https://www.dior.com/couture/ecommerce/media/catalog/product/5/S/1701194770_1ADBA041YKS_H00N_E03_ZH.jpg
+
+https://www.chanel.com/images/t_zoomfshacc/f_auto/classic-handbag-multicolor-tweed-gold-tone-metal-tweed-gold-tone-metal-packshot-artistique-vue2-a01112b14971ns986-9530082525214.jpg
+
+https://assets.burberry.com/is/image/Burberryltd/D68F00A9-942A-4FBB-BE1D-A5DB50F32018?$BBY_V3_SL_1.36$&wid=581&hei=788

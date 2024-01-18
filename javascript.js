@@ -8,3 +8,19 @@ var cards = document.querySelectorAll('.product-box');
         card.classList.remove('is-hover');
     })
 })
+
+document.addEventListener("DOMContentLoaded", function() {
+    var videoElement = document.querySelector('video');
+    videoElement.playbackRate = 0.8;
+    var observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          videoElement.play();
+        } else {
+          videoElement.pause();
+        }
+      });
+    }, { threshold: 0.25 }); // 0.25 means 25% of the item is in view
+  
+    observer.observe(videoElement);
+});
