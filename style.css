@@ -1,7 +1,7 @@
 @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 body{
-    background:  rgba(228, 211, 220, 0.3);
+    background:  rgba(241, 218, 230, 0.3);
     background-blend-mode: multiply;
     background-position: center;
     background-size: cover;
@@ -55,7 +55,11 @@ body{
     object-fit: cover;
 }
 
-
+.product-box.is-hover .icons {
+    transform: rotate(-3%);
+    top: 3%;
+    opacity: 1;
+}
 
 .cart-btn {
     position: absolute;
@@ -70,22 +74,15 @@ body{
     opacity: 1;
 }
 
-.navbar {
-    background-color: white; /* Set navbar background to white */
-}
+
 
 .navbar-brand,
+.offcanvas-body
 .nav-link {
     color: black !important; /* Set navbar brand and link color to black */
 }
 
 /* You may also need to adjust the hover and active link styles */
-.navbar-brand:hover,
-.nav-link:hover,
-.nav-link.active {
-    color: gray !important; /* Change color to gray on hover and for active link */
-}
-
 
 
 .c-item {
@@ -103,4 +100,10 @@ body{
         background-color: rgba(0, 0, 0, 0.15);
         backdrop-filter: blur(10px);
     }
+    .offcanvas-body
+    .nav-link {
+        color: rgb(255, 255, 255) !important; /* Set navbar brand and link color to black */
+    }
+
+    
 }
