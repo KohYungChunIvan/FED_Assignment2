@@ -192,7 +192,7 @@ footer {
     right: -500px; /* Initial position, adjust as needed */
     width: 480px; /* Adjust the width of the cart */
     height: 100%; /* Set height to 100% */
-    background-color: #494646; /* Set background color of the cart */
+    background-color: #0c0c0c; /* Set background color of the cart */
     transition: right 0.5s ease; /* Add transition for smooth sliding */
     overflow-y: auto; /* Add overflow-y to allow vertical scrolling */
 }
@@ -211,7 +211,7 @@ footer {
     font-weight: bold; /* Set font weight to bold */
     color: #ffffff; /* White text color */
     margin-top: 25px; /* Adjust the top margin */
-    padding-left: 160px; /* Adjust the left padding */
+    padding-left: 157px; /* Adjust the left padding */
 }
 
 /* Styles for the title when the shopping cart is empty */
@@ -221,7 +221,7 @@ footer {
     font-weight: bold; /* Set font weight to bold */
     color: #ffffff; /* White text color */
     margin-top: 250px; /* Adjust the top margin */
-    padding-left: 151px; /* Adjust the left padding */
+    padding-left: 137px; /* Adjust the left padding */
 }
 
 /* login container */
