@@ -257,17 +257,4 @@ footer {
     .text-lg-white {
         color: white !important;
     }
-
-    .box-area{
-        margin: 0 10px;
-     }
-     .left-box{
-        height: 100px;
-        overflow: hidden;
-     }
-     .right-box{
-        padding: 20px;
-     }
-
-    
 }
