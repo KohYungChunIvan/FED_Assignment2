@@ -71,3 +71,13 @@ https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-twist-pm-
 https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-petite-malle-capitale-monogram-handbags--M46755_PM2_Front%20view.png?wid=2400&hei=2400
 
 https://s7d2.scene7.com/is/image/Coach/cm424_lhw8m_a0?fmt=jpg&wid=711&hei=888&qlt=80%2C1&op_sharpen=0&resMode=bicub&op_usm=5%2C0.2%2C0%2C0&iccEmbed=0&fit=vfit
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-romy-card-holder-monogram-wallets-and-small-leather-goods--M81880_PM2_Front%20view.png?wid=4096&hei=4096
+
+https://www.prada.com/content/dam/pradabkg_products/1/1MC/1MC086/2CLUF0002/1MC086_2CLU_F0002_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2000.2000.jpg
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-emilie-wallet-monogram-wallets-and-small-leather-goods--M61289_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-slim-purse-monogram-reverse-wallets-and-small-leather-goods--M80390_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-rosalie-coin-purse-damier-azur-canvas-wallets-and-small-leather-goods--N61276_PM2_Front%20view.png?wid=2400&hei=2400
