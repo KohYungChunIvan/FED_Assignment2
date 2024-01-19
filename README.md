@@ -81,3 +81,7 @@ https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-emilie-wa
 https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-slim-purse-monogram-reverse-wallets-and-small-leather-goods--M80390_PM2_Front%20view.png?wid=2400&hei=2400
 
 https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-rosalie-coin-purse-damier-azur-canvas-wallets-and-small-leather-goods--N61276_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-dauphine-compact-wallet-wallets-and-small-leather-goods--M68725_PM2_Front%20view.png?wid=2400&hei=2400
+
+https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2264922221.jpg

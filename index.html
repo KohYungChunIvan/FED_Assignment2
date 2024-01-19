@@ -42,7 +42,7 @@
                     <a class="nav-link" href="handbag.html">Hand Bag</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="accessories.html">Accessories</a>
+                    <a class="nav-link" href="wallet.html">Wallet</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="#rewards">Rewards</a>
@@ -53,13 +53,16 @@
                 
               </ul>
               <!--Login / Sign up-->
-              <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
+              <div class="d-flex flex-column flex-lg-row align-items-center gap-3 px-3">
                 <a href="#cart" class="text-black text-lg-white open-cart">Cart</a>
-                <a href="login.html" class="text-black text-lg-white">Login</a>
-                <a href="signup.html" class="text-white text-decoration-none px-3 p-1 rounded-4"
+                <a href="login.html" id="auth-buttons" class="text-black text-lg-white">Login</a>
+                <a href="signup.html" id="auth-buttons" class="text-white text-decoration-none px-3 p-1 rounded-4"
                 style="background-color: #000000;"
                 >Sign Up</a>
+              </div>
 
+              <div class="profile-pic" style="display: none;">
+                <img src="photos/default-dp.jpg" alt="Profile Picture">
               </div>
             </div>
           </div>
@@ -124,7 +127,8 @@
                         </div>
                             <img src="photos/Saddle Backpack.jpg" alt="BackPack" class="img-fluid">
                             <div class="cart-btn">
-                                <button class="btn btn-white shadow-sm rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg> Add to Cart</button>
+                                <button class="btn btn-white shadow-sm rounded-pill" onclick="addToCart('Saddle Backpack', 988, 'photos/Saddle Backpack.jpg')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg> Add to Cart</button>
                             </div>
                     </div>
                     <div class="product-info">
@@ -146,7 +150,8 @@
                         </div>
                             <img src="photos/Classic HandBag.jpg" alt="BackPack" class="img-fluid">
                             <div class="cart-btn">
-                                <button class="btn btn-white shadow-sm rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg> Add to Cart</button>
+                                <button class="btn btn-white shadow-sm rounded-pill" onclick="addToCart('Classic HandBag', 888, 'photos/Classic HandBag.jpg')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg> Add to Cart</button>
                             </div>
                     </div>
                     <div class="product-info">
