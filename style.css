@@ -16,6 +16,11 @@ body{
     margin-bottom: 150px;
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+    z-index: 1; 
+}
+
 .display-2 {
     font-size: 60px;
 }
@@ -182,6 +187,7 @@ footer {
 
 .cart-popup {
     position: fixed; /* Fixed positioning for overlay effect */
+    z-index: 1050;
     top: 0; /* Align the top of the window */
     right: -500px; /* Initial position, adjust as needed */
     width: 480px; /* Adjust the width of the cart */
