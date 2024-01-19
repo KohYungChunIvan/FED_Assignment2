@@ -54,7 +54,7 @@
               </ul>
               <!--Login / Sign up-->
               <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
-                <a href="#cart" class="text-black text-lg-white">Cart</a>
+                <a href="#cart" class="text-black text-lg-white open-cart">Cart</a>
                 <a href="#login" class="text-black text-lg-white">Login</a>
                 <a href="#signup" class="text-white text-decoration-none px-3 p-1 rounded-4"
                 style="background-color: #000000;"
@@ -64,7 +64,7 @@
             </div>
           </div>
         </div>
-      </nav>
+    </nav>
     
       <div class="card-container px-5 py-4">
         <div class="row mb-2">
@@ -292,8 +292,12 @@
         </div>
       </div>
       
-
-      
+      <div class="cart-popup" style="right: -500px;">
+        <div class="shopping-cart-title">Shopping Cart</div>
+        <div class="empty-cart-title">Your Cart is Empty</div>
+        <div class="cart-popup-content"></div>
+        <div class="close-cart" onclick="toggleCart()">X</div>
+      </div>
 
       <div class="offer text-center text-white py-5" style="background-color: #ae9a88; font-style: italic;">
         <h2>Get 10% off your first order</h2>

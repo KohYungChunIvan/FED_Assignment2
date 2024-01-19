@@ -26,3 +26,23 @@ document.addEventListener("DOMContentLoaded", function() {
   
     observer.observe(videoElement);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  var cartPopup = document.querySelector('.cart-popup');
+  var cartLink = document.querySelector('.open-cart'); // Make sure to assign the proper class
+
+  cartLink.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default link behavior
+
+      // Toggle the right property of the cart-popup
+      var currentRight = parseInt(cartPopup.style.right) || 0;
+      var newRight = (currentRight === 0) ? -500 : 0;
+      cartPopup.style.right = newRight + 'px';
+  });
+});
+
+// Function to toggle the visibility of the cart popup
+function toggleCart() {
+  const cartPopup = document.querySelector('.cart-popup');
+  cartPopup.style.right = cartPopup.style.right === '0px' ? '-500px' : '0px';
+}
