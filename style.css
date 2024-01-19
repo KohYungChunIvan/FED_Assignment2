@@ -224,6 +224,26 @@ footer {
     padding-left: 151px; /* Adjust the left padding */
 }
 
+/* login container */
+.box-area{
+    width: 930px;
+}
+
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+
+::placeholder{
+    font-size: 16px;
+}
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+
+
 @media(max-width: 991px){
     .sidebar{
         background-color: rgba(0, 0, 0, 0.15);
@@ -237,6 +257,17 @@ footer {
     .text-lg-white {
         color: white !important;
     }
+
+    .box-area{
+        margin: 0 10px;
+     }
+     .left-box{
+        height: 100px;
+        overflow: hidden;
+     }
+     .right-box{
+        padding: 20px;
+     }
 
     
 }
