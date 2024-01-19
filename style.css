@@ -11,6 +11,15 @@ body{
     font-family: 'Poppins', sans-serif;
     
 }
+
+.carousel-caption {
+    margin-bottom: 150px;
+}
+
+.display-2 {
+    font-size: 60px;
+}
+
 .card-container {
     font-family: 'Poppins', sans-serif;
     display: flex;

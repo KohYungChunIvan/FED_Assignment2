@@ -13,7 +13,7 @@ var cards = document.querySelectorAll('.product-box');
 
 document.addEventListener("DOMContentLoaded", function() {
     var videoElement = document.querySelector('video');
-    videoElement.playbackRate = 0.8;
+    videoElement.playbackRate = 0.75;
     var observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if(entry.isIntersecting) {
