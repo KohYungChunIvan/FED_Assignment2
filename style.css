@@ -9,8 +9,10 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Poppins', sans-serif;
-    
+    margin: 0;
+    padding: 0;
 }
+
 .profile-pic{
     display: inline-block;
     vertical-align: middle;
@@ -246,7 +248,7 @@ footer {
 #cart-item-count {
     position: absolute;
     top: 0.1;
-    right: 22.2vw;
+    right: 21.5vw;
     background-color: rgb(0, 0, 0);
     color: white;
     border-radius: 50%;
@@ -339,5 +341,31 @@ footer {
 
     .text-lg-white {
         color: white !important;
+    }
+}
+@media(max-width: 1920px) {
+    #cart-item-count {
+        right: 25.8vw;
+    }
+}
+
+@media(max-width: 1690px) {
+    #cart-item-count {
+        right: 22.4vw;
+    }
+}
+
+@media(max-width: 1512px) {
+    #cart-item-count {
+        right: 19.2vw;
+    }
+}
+
+@media(max-width: 600px) {
+    #cart-item-count {
+        top: 1;
+        right: 28.6vw;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
     }
 }
