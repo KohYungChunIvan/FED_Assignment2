@@ -54,14 +54,23 @@ function addToCart(productName, productPrice, productImage) {
   // Create a new cart item element
   const cartItem = document.createElement('div');
   cartItem.classList.add('cart-item');
+  // Add the data-price attribute to the cart item
+  cartItem.setAttribute('data-price', productPrice);
 
   // Create a delete button for the cart item
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('cart-delete-button');
   deleteButton.innerHTML = '&#10006;'; // Cross symbol
   deleteButton.addEventListener('click', function () {
+    const productPrice = parseFloat(cartItem.getAttribute('data-price'));
     // Remove the cart item when the delete button is clicked
     cartPopupContent.removeChild(cartItem);
+
+    // Update the cart total by deducting the price of the deleted item
+    const currentTotal = calculateTotalPrice();
+    const newTotal = Math.max(0, currentTotal - productPrice); // Ensure the total doesn't go below 0
+    updateCartTotal(newTotal);
+
     updateCartItemCount()
     // Check if the cart is empty and show/hide the "Your Cart is Empty" message
     checkEmptyCart();
@@ -140,8 +149,11 @@ function updateCartTotal() {
   const totalAmountSpan = document.getElementById('total-amount');
   totalAmountSpan.textContent = total.toFixed(2);
 
+  // Show or hide the cart-total based on the total value
+  cartTotalElement.style.display = total > 0 ? 'block' : 'none';
+
   // Update the "Total" text (optional)
-  cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
+  //cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
 }
 
 // Function to remove items from the cart
