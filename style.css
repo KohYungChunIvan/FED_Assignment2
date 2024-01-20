@@ -272,18 +272,18 @@ footer {
     flex-direction: column; /* Stack name and price vertically */
     align-items: flex-start; /* Align name and price to the left */
     justify-content: center; /* Vertically center name and price */
-  }
+}
   
-  /* Style the product name */
-  .product-details h6 {
+/* Style the product name */
+.product-details h6 {
     margin: 0;
     font-size: 16px;
-  }
+}
   
-  /* Style the product price */
-  .product-details span {
+/* Style the product price */
+.product-details span {
     font-size: 16px;
-  }
+}
 
 .cart-item {
     display: flex;

@@ -340,8 +340,5 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("total-contacts").innerHTML = response.length;
       });
   }
-
-
-
-
 });
+ 
