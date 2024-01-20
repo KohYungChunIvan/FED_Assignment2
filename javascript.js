@@ -70,8 +70,8 @@ function addToCart(productName, productPrice, productImage) {
     const currentTotal = calculateTotalPrice();
     const newTotal = Math.max(0, currentTotal - productPrice); // Ensure the total doesn't go below 0
     updateCartTotal(newTotal);
-
     updateCartItemCount()
+    updateCheckoutButtonVisibility()
     // Check if the cart is empty and show/hide the "Your Cart is Empty" message
     checkEmptyCart();
   });
@@ -113,6 +113,7 @@ function addToCart(productName, productPrice, productImage) {
   updateCartItemCount();
   // Update the cart total
   updateCartTotal();
+  updateCheckoutButtonVisibility()
 }
 
 // Function to check if the cart is empty and show/hide the "Your Cart is Empty" message
@@ -164,6 +165,7 @@ function removeFromCart(cartItem) {
   updateCartTotal();
   updateCartItemCount();
   checkEmptyCart();
+  updateCheckoutButtonVisibility()
 
   // Check if the cart is empty and show/hide the "Your Cart is Empty" message
   const emptyCartMessage = document.querySelector('.empty-cart-title');
@@ -179,6 +181,47 @@ function updateCartItemCount() {
   const cartItemCount = document.getElementById('cart-item-count');
   const cartItems = document.querySelectorAll('.cart-item');
   cartItemCount.textContent = cartItems.length;
+}
+function updateCheckoutButtonVisibility() {
+  const checkoutButton = document.getElementById('checkout-button');
+  const cartItems = document.querySelectorAll('.cart-item');
+  
+  // If there are items in the cart, show the checkout button; otherwise, hide it
+  checkoutButton.style.display = cartItems.length > 0 ? 'block' : 'none';
+}
+function checkout() {
+  //Checkout
+  alert("Proceeding to checkout!");
+
+  const cartItems = document.querySelectorAll('.cart-item');
+  const checkoutButton = document.getElementById('checkout-button')
+  // Remove each cart item
+  cartItems.forEach((cartItem) => {
+    cartItem.remove();
+  });
+  // Close the checkout button
+  checkoutButton.style.display = 'none';
+  // Reset the cart total to 0
+  const totalAmountSpan = document.getElementById('total-amount');
+  totalAmountSpan.textContent = '0.00';
+
+  // Hide the cart total
+  const cartTotalElement = document.querySelector('.cart-total');
+  cartTotalElement.style.display = 'none';
+
+  // Check if the cart is empty and show/hide the "Your Cart is Empty" message
+  const emptyCartMessage = document.querySelector('.empty-cart-title');
+  if (cartItems.length === 0) {
+    emptyCartMessage.style.display = 'block';
+  } else {
+    emptyCartMessage.style.display = 'none';
+  }
+
+  // Update the cart total, item count, and check if the cart is empty
+  updateCartTotal();
+  updateCartItemCount();
+  checkEmptyCart();
+  toggleCart();
 }
 
 

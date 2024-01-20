@@ -419,7 +419,20 @@ footer {
     padding: 20px;
     font-size: 20px;
 }
-
+.checkout-box{
+    display: block;
+    padding: 0 0 0 30px;
+}
+#checkout-button{
+    display: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+#checkout-button:hover{
+    background-color: #f8e3e3;
+}
 
 @media(max-width: 991px){
     .sidebar{
