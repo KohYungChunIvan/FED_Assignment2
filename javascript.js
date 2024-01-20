@@ -170,15 +170,38 @@ function updateCartItemCount() {
 }
 
 
-let wheel = document.querySelector('.wheel');
-let spinBtn = document.querySelector('.spinBtn');
-let value = Math.ceil(Math.random() * 3600);
+document.addEventListener('DOMContentLoaded', function () {
+  let wheel = document.querySelector('.wheel');
+  let spinBtn = document.querySelector('.spinBtn');
+  let deg = 0;
+  const maxPrizes = 8; // The number of segments on the wheel
 
-spinBtn.onclick = function(){
-  wheel.style.transition = "transform 4s ease-out"; // Add a smooth transition
-  wheel.style.transform = "rotate(" + value + "deg)" ;
-  value += Math.ceil(Math.random() * 3600)
-}
+  spinBtn.onclick = function () {
+    deg += Math.floor(500 + Math.random() * 3100); // Ensures a full rotation
+    wheel.style.transition = 'transform 4s ease-out';
+    wheel.style.transform = `rotate(${deg}deg)`;
+
+    setTimeout(function () {
+      const singleSlice = 360 / maxPrizes; // degrees for each segment
+      const offset = singleSlice / 2; // offset to point to the middle of a segment
+      // Calculate the degree within a single full rotation (0-359)
+      const degreeNormalized = (deg % 360 + offset) % 360;
+      // Calculate the prize index counter-clockwise because nth-child goes in that order
+      let prizeIndex = Math.ceil((360 - degreeNormalized) / singleSlice) + 1;
+
+      // Get the selected prize amount based on the index
+      const prizeAmount = wheel.querySelector(`.number:nth-child(${prizeIndex}) span`).textContent;
+
+      // Show an alert with the selected prize
+      alert(`Congratulations! You won: ${prizeAmount}`);
+    }, 4000); // Set timeout to match the transition time of 4 seconds
+  };
+});
+
+
+
+
+
 // FOR API
 document.addEventListener("DOMContentLoaded", function () {
   const APIKEY = "65ab507be8b7cb2cc9ce52f9";

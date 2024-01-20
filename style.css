@@ -334,7 +334,7 @@ footer {
 
 .spin-text {
     position: absolute;
-    left: 2%; /* Center the text horizontally */
+    left: 25%; /* Center the text horizontally */
     bottom: 110%;
     font-size: 24px; /* Adjust the font size as needed */
     color: #fff; /* Text color */
