@@ -321,6 +321,97 @@ footer {
 }
 
 
+/* Spin the Wheel */
+.spinbody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 98vh;
+    background-color: #363232;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .spinBtn {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #332f2f;
+    letter-spacing: 0.1em;
+    border: 4px solid rgba(0,0,0,0.75);
+    cursor: pointer;
+    user-select: none;
+}
+
+.container .spinBtn::before {
+    background: #fff;
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    top: -29px;
+    clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+}
+
+.container .wheel {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333131;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #716868, 0 0 0 15px #fff, 0 0 0 18px #151515
+}
+
+.container .wheel .number {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    background: var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(45deg * var(--i)));
+    clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+    user-select: none;
+    cursor: pointer;
+}
+
+.container .wheel .number span{
+    position: relative;
+    transform: rotate(45deg);
+    font-size: 1.8em;
+    font-weight: bolder;
+    color: #fff;
+    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+/* .container .wheel .number span::after{
+    position: absolute;
+    content: '$';
+    font-size: 0.75 em;
+    font-weight: 500;
+} */
+
+
 @media(max-width: 991px){
     .sidebar{
         background-color: rgba(0, 0, 0, 0.15);
@@ -339,32 +430,24 @@ footer {
 
 @media(max-width: 1920px) {
     #cart-item-count {
-        position: absolute;
-        top: 0.1;
         right: 26.1vw;
     }
 }
 
 @media(max-width: 1690px) {
     #cart-item-count {
-        position: absolute;
-        top: 0.1;
         right: 23.0vw;
     }
 }
 
 @media(max-width: 1512px) {
     #cart-item-count {
-        position: absolute;
-        top: 0.1;
         right: 19.8vw;
     }
 }
 
 @media(max-width: 600px) {
     #cart-item-count {
-        position: absolute;
-        top: 0.1;
         right: 30.1vw;
         background-color: rgb(255, 255, 255);
         color: rgb(0, 0, 0);
