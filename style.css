@@ -9,8 +9,10 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Poppins', sans-serif;
-    
+    margin: 0;
+    padding: 0;
 }
+
 .profile-pic{
     display: inline-block;
     vertical-align: middle;
@@ -326,11 +328,19 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 98vh;
+    min-height: 100vh;
     background-color: #363232;
 }
 
-.container {
+.spin-text {
+    position: absolute;
+    left: 2%; /* Center the text horizontally */
+    bottom: 110%;
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #fff; /* Text color */
+}
+
+.spin-container {
     position: relative;
     width: 400px;
     height: 400px;
@@ -339,7 +349,7 @@ footer {
     align-items: center;
 }
 
-.container .spinBtn {
+.spin-container .spinBtn {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -358,7 +368,7 @@ footer {
     user-select: none;
 }
 
-.container .spinBtn::before {
+.spin-container .spinBtn::before {
     background: #fff;
     content: '';
     position: absolute;
@@ -368,7 +378,7 @@ footer {
     clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
 }
 
-.container .wheel {
+.spin-container .wheel {
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -380,7 +390,7 @@ footer {
     box-shadow: 0 0 0 5px #716868, 0 0 0 15px #fff, 0 0 0 18px #151515
 }
 
-.container .wheel .number {
+.spin-container .wheel .number {
     display: flex;
     position: absolute;
     justify-content: center;
@@ -395,7 +405,7 @@ footer {
     cursor: pointer;
 }
 
-.container .wheel .number span{
+.spin-container .wheel .number span{
     position: relative;
     transform: rotate(45deg);
     font-size: 1.8em;
@@ -404,12 +414,6 @@ footer {
     text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
-/* .container .wheel .number span::after{
-    position: absolute;
-    content: '$';
-    font-size: 0.75 em;
-    font-weight: 500;
-} */
 
 
 @media(max-width: 991px){
