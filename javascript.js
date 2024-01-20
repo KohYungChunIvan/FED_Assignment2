@@ -187,19 +187,22 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {
         const singleSlice = 360 / maxPrizes; // degrees for each segment
         const offset = singleSlice / 2; // offset to point to the middle of a segment
-        // Calculate the degree within a single full rotation (0-359)
         const degreeNormalized = (deg % 360 + offset) % 360;
-        // Calculate the prize index counter-clockwise because nth-child goes in that order
         let prizeIndex = Math.ceil((360 - degreeNormalized) / singleSlice) + 1;
-
+      
+        // The index should not exceed maxPrizes, if it does, reset to 1 (the first prize)
+        if (prizeIndex > maxPrizes) {
+          prizeIndex = 1;
+        }
+      
         // Get the selected prize amount based on the index
         const prizeAmount = wheel.querySelector(`.number:nth-child(${prizeIndex}) span`).textContent;
-
+      
         // Show an alert with the selected prize
         alert(`Congratulations! You won: ${prizeAmount}`);
-
+      
         isSpinning = false; // Reset the flag to allow spinning again
-      }, 4000); // Set timeout to match the transition time of 4 seconds
+      }, 4000);
     }
   };
 });
