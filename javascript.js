@@ -62,6 +62,7 @@ function addToCart(productName, productPrice, productImage) {
   deleteButton.addEventListener('click', function () {
     // Remove the cart item when the delete button is clicked
     cartPopupContent.removeChild(cartItem);
+    updateCartItemCount()
     // Check if the cart is empty and show/hide the "Your Cart is Empty" message
     checkEmptyCart();
   });
@@ -100,6 +101,7 @@ function addToCart(productName, productPrice, productImage) {
 
   // Check if the cart has items and hide the "Your Cart is Empty" message
   checkEmptyCart();
+  updateCartItemCount();
   // Update the cart total
   updateCartTotal();
 }
@@ -148,7 +150,7 @@ function removeFromCart(cartItem) {
   
   // Update the cart total
   updateCartTotal();
-
+  updateCartItemCount();
   checkEmptyCart();
 
   // Check if the cart is empty and show/hide the "Your Cart is Empty" message
@@ -159,4 +161,10 @@ function removeFromCart(cartItem) {
   } else {
     emptyCartMessage.style.display = 'none';
   }
+}
+
+function updateCartItemCount() {
+  const cartItemCount = document.getElementById('cart-item-count');
+  const cartItems = document.querySelectorAll('.cart-item');
+  cartItemCount.textContent = cartItems.length;
 }

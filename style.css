@@ -239,7 +239,20 @@ footer {
     margin-top: 250px; /* Adjust the top margin */
     padding-left: 137px; /* Adjust the left padding */
 }
-
+.cart-container {
+    position: relative;
+    display: inline-block;
+  }
+#cart-item-count {
+    position: absolute;
+    top: 0.1;
+    right: 22.3vw;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 50%;
+    padding: 1.5px 4.5px;
+    font-size: 7.5px;
+}
 .cart-item img {
     width: 110px; /* Adjust the width as needed */
     height: 100px; /* Adjust the height as needed */
