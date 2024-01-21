@@ -85,3 +85,7 @@ https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-rosalie-c
 https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-dauphine-compact-wallet-wallets-and-small-leather-goods--M68725_PM2_Front%20view.png?wid=2400&hei=2400
 
 https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2264922221.jpg
+
+https://success-cms.labs.livechatinc.com/app/uploads/2019/09/7651225810_ae9678ccbc_h-e1583178122833.jpg
+
+https://i.pinimg.com/originals/f7/14/4a/f7144a5bec1c2f6298160b08d6d21f67.jpg
