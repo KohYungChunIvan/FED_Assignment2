@@ -29,7 +29,7 @@ body{
  }
 
 .carousel-caption {
-    margin-bottom: 150px;
+    margin-bottom: 115px;
 }
 
 .carousel-control-next,
@@ -130,7 +130,7 @@ body{
 .c-img {
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.6);
+    filter: brightness(0.3);
 }
 
 
