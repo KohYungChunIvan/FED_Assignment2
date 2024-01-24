@@ -1,28 +1,57 @@
-Idea:
-1: User Audience and Intent Purpose:
+Mori: E-Commerce Bag Store
 
-This front-end development project revolves around creating an engaging online presence for Baker's Brew, a haven for dessert enthusiasts and those celebrating special occassions with exquisite cakes. The primary aimm for this website is to not only to showcase the delectabel range of cakes but also to evoke a sense of celebration and joy. With a color palette chosen to reflect the sweetnewss of our offering, this make the website serves as a virtual window to Baker's Brew world.
+Overview
 
-Visitors to the website can find a seamless blend of classic and custom cake options, catering to individuals looking for a delightful treat or those planning to make their celebrations extra special. The design and content are meticulously crafted to resonate with cake connoisseurs and individuals seeking unique, personalised desserts. The website aims to create a warm and inviting digitak space for users to explore the diverse range of cakes offered by Baker's Brew.
+Mori is an innovative e-commerce platform dedicated to offering a unique shopping experience for bag enthusiasts. At Mori, we blend the excitement of online shopping with a rewarding points system, allowing customers to earn and use points with every purchase. Our store is designed to cater to a wide range of customers, providing a diverse collection of high-quality bags.
 
-2: Who the Website is For and Value Provided top Users:
+Design Process
 
-Baker's Brew is designed to cater to two main groups of users. The first group includes cake enthusiasts who are passionate about exploring and indulging in high-quality, visually appealing cakes. For them, the website provides a detailed showcase of classic cakes with intricate designs as well as the option to customize cakes for special occasions. The second group compromises individuals planning celebrations - be it birthdays, weddings, or other significant events. For them, Baker's Brew offers a range of custom cake options and a user-friendly ordering process.
-
-3: What the Website is Catering For:
-
-Homepage (index.html) : As the front-end developer for Baker's Brew, my primary focus is on creating a visually appealing and user-friendly homepage. The homepage will feature the latest cake designs, enticing users to explore further. Strategic placement of buttons will guide users to navigate effortlessly to different cake categories and the contact page. The goal is to evoke a sense of celebration from the moment users land on the homepage, encouraging them to discover the diverse and delicious world of Baker's Brew cakes.
-
-Classic Cake (Classic Cake.html): This page is dedicated to showcasing the timeless beauty and flavors of our classic cake collection. Each cake will be presented with high-quality images and detailed descriptions along with the pricing information. The page layout will be designed for easy navigation, allowing users to quickly find the perfect classic cake for any occasion.
-
-Customized Cake (CustomisedCake.html): For those looking to add a personal touch to their celebrations, the Customized Cake page will highlight Baker's Brew's expertise in creating bespoke cakes. Users will be guided through the customization process, from choosing flavors and designs to adding personalized messages. The page will feature examples of previous custom cakes to inspire users and showcase the level of detail and craftsmanship they can expect from Baker's Brew.
-
-Durian Cake (DurianCake.html): Catering to the unique taste preferences of durian lovers, this page will feature Baker's Brew's exclusive Durian Cake collection. Each durian cake variant will be presented with enticing visuals and flavor profiles, appealing to durian enthusiasts. A detailed description of the durian used, the cake's texture, and pricing information will help users make informed decisions about their durian cake choices.
-
-Contact Us (ContactUs.html): The Contact Us page will serve as a hub for user inquiries, feedback, and order customization requests. Users will find a user-friendly form to submit their queries, and contact information for Baker's Brew will be prominently displayed for those who prefer direct communication. Additionally, the page will feature links to Baker's Brew's social media profiles, encouraging users to stay connected and updated on the latest cake offerings and promotions.
+Our design process is user-centered, focusing on providing a seamless and enjoyable shopping experience. We've conducted extensive market research to understand our customers' needs and preferences. This also builds customer loyalty to our store.
 
 
-Reference:
+User Stories
+
+As a frequent shopper, I want to earn points on my purchases, so that I can get rewards and discounts.
+As a budget-conscious customer, I want to spin a wheel using points, so that I can win vouchers for future purchases.
+As a loyal customer, I want to redeem points for items, to feel valued for my continued patronage.
+
+
+Features
+
+Existing Features
+-Spin-to-Win Feature - Engages users in a game of luck where they can win vouchers using their points.
+
+
+
+Features Left to Implement
+-Points Accumulation System - Allows users to accumulate points with every purchase, enhancing customer loyalty.
+
+-Item Redemption with Points - Provides an option to redeem points for items, offering more flexibility to the users.
+Referral Program - A feature to reward users for referring friends to the store.
+
+
+Technologies Used
+-HTML/CSS - For structuring and styling the website's content.
+-JavaScript - To enhance interactivity, particularly in the points system and the spin-to-win feature.
+
+
+Testing
+
+Manual Testing Scenarios
+
+-Points Accumulation:
+Make a purchase and check if points are correctly added.
+Verify the points-to-purchase ratio is consistent.
+
+-Spin-to-Win Feature:
+Attempt to spin the wheel without enough points and check for error handling.
+Spin the wheel with sufficient points and verify voucher generation.
+Cross-Browser and Responsiveness Testing
+Tested across multiple browsers (Chrome, Firefox, Safari) and devices (desktop, tablet, mobile) to ensure compatibility and responsiveness.
+
+
+
+Credits:
 
 https://assets.burberry.com/is/image/Burberryltd/D68F00A9-942A-4FBB-BE1D-A5DB50F32018?$BBY_V3_UNSHARP_SL_1$&wid=4000&hei=4000
 
