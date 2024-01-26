@@ -2,19 +2,23 @@ Mori: E-Commerce Bag Store
 
 Overview
 
-Mori is an innovative e-commerce platform dedicated to offering a unique shopping experience for bag enthusiasts. At Mori, we blend the excitement of online shopping with a rewarding points system, allowing customers to earn and use points with every purchase. Our store is designed to cater to a wide range of customers, providing a diverse collection of high-quality bags.
+Mori is not just a place to buy bags — it's an experience. With every purchase, customers don't just get a product; they earn a chance to engage with the brand further through a point-based reward system. This gamification aspect makes shopping more than a transaction; it turns it into a fun, exciting activity that customers look forward to.
 
 Design Process
 
-Our design process is user-centered, focusing on providing a seamless and enjoyable shopping experience. We've conducted extensive market research to understand our customers' needs and preferences. This also builds customer loyalty to our store.
+The platform is designed with a deep understanding of the users' shopping behaviors and desires. It recognizes that customers seek more than just products; they want to feel valued and entertained. Mori's user interface is streamlined to minimize friction, making the process from browsing to buying to earning rewards as smooth and enjoyable as possible.
 
 
-User Stories
+User Stories Implementation:
 
-As a frequent shopper, I want to earn points on my purchases, so that I can get rewards and discounts.
-As a budget-conscious customer, I want to spin a wheel using points, so that I can win vouchers for future purchases.
-As a loyal customer, I want to redeem points for items, to feel valued for my continued patronage.
+Points on Purchases:
+-Customers earn points for every dollar spent. These points are reflected in their account immediately after purchase. There could be a tier system where the more they shop, the higher the multiplier on their points earning, incentivizing consistent patronage.
 
+Spin-to-Win Game:
+-Users can spend their points to spin a wheel for a chance to win coupons, additional points, or even free items. This feature not only provides instant gratification but also injects an element of surprise and excitement into the shopping experience.
+
+Redeeming Points:
+-Points can be redeemed for items, providing tangible value back to the customers. This also serves as a 'thank you' gesture, ensuring that customers feel appreciated for their loyalty.
 
 Features
 
@@ -24,14 +28,14 @@ Existing Features
 
 
 Features Left to Implement
--Points Accumulation System - Allows users to accumulate points with every purchase, enhancing customer loyalty.
+-Points Accumulation System - A backend system that tracks customer purchases and allocates points accordingly. This system needs to be robust to handle multiple transactions simultaneously and reflect points in real-time.
 
--Item Redemption with Points - Provides an option to redeem points for items, offering more flexibility to the users.
-Referral Program - A feature to reward users for referring friends to the store.
+-Item Redemption with Points - A catalog of items available for point redemption will be integrated. Users can browse this catalog and choose to spend their points on these items instead of purchasing with cash.
 
+-Referral Program - Customers can refer friends to earn more points. This not only encourages current customers to bring in new ones but also expands the brand's reach organically.
 
 Technologies Used
--HTML/CSS - For structuring and styling the website's content.
+-HTML/CSS/Bootstrap - For structuring and styling the website's content.
 -JavaScript - To enhance interactivity, particularly in the points system and the spin-to-win feature.
 
 
