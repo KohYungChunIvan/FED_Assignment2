@@ -267,65 +267,159 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// FOR API
 document.addEventListener("DOMContentLoaded", function () {
   const APIKEY = "65ab507be8b7cb2cc9ce52f9";
-  //getContacts();
-  //document.getElementById("update-contact-container").style.display = "none";
-  //document.getElementById("add-update-msg").style.display = "none";
+  adjustCartCountPosition();
+  // Check if the sign-up form exists on the current page
+  const signUpButton = document.getElementById("contact-submit");
+  if (signUpButton) {
+      signUpButton.addEventListener("click", function (e) {
+          e.preventDefault();
 
-  //[STEP 1]: Create our submit form listener
-  document.getElementById("contact-submit").addEventListener("click", function (e) {
-    // Prevent default action of the button 
-    e.preventDefault();
+          let userName = document.getElementById("user-name").value;
+          let userEmail = document.getElementById("user-email").value;
+          let userPwd = document.getElementById("user-pwd").value;
+          
+          let jsondata = {
+              "user-name": userName,
+              "user-email": userEmail,
+              "user-pwd": userPwd,
+          };
 
-    let userName = document.getElementById("user-name").value;
-    let userEmail = document.getElementById("user-email").value;
-    let userPwd = document.getElementById("user-pwd").value;
-    
+          let settings = {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+                  "x-apikey": APIKEY,
+                  "Cache-Control": "no-cache"
+              },
+              body: JSON.stringify(jsondata)
+          };
 
-    //[STEP 3]: Get form values when the user clicks on send
-    // Adapted from restdb API
-    let jsondata = {
-      "user-name": userName,
-      "user-email": userEmail,
-      "user-pwd": userPwd,
-    };
-
-    //[STEP 4]: Create our AJAX settings. Take note of API key
-    let settings = {
-      method: "POST", //[cher] we will use post to send info
-      headers: {
-        "Content-Type": "application/json",
-        "x-apikey": APIKEY,
-        "Cache-Control": "no-cache"
-      },
-      body: JSON.stringify(jsondata),
-      beforeSend: function () {
-        //@TODO use loading bar instead
-        // Disable our button or show loading bar
-        document.getElementById("contact-submit").disabled = true;
-        
-      }
-    }
-
-    //[STEP 5]: Send our AJAX request over to the DB and print response of the RESTDB storage to console.
-    fetch("https://fedassignment2-7f7e.restdb.io/rest/mori-user", settings)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        document.getElementById("contact-submit").disabled = false;
-        //@TODO update frontend UI 
-       //document.getElementById("add-update-msg").style.display = "block";
-        //setTimeout(function () {
-          //document.getElementById("add-update-msg").style.display = "none";
-        //}, 3000);
-        // Update our table 
-        //getContacts();
-        // Clear our form using the form ID and triggering its reset feature
-        document.getElementById("add-contact-form").reset();
+          fetch("https://fedassignment2-7f7e.restdb.io/rest/mori-user", settings)
+              .then(response => response.json())
+              .then(data => {
+                  console.log(data);
+                  // Store user information in localStorage
+                  localStorage.setItem('loggedInUser', userName);
+                  // Update UI to reflect logged-in user
+                  updateUserDisplay(userName);
+                  document.getElementById("add-contact-form").reset();
+                  document.getElementById("contact-submit").disabled = false;
+              });
       });
-  });
+  }
+
+  // Check if the login form exists on the current page
+  const loginButton = document.getElementById("login-submit");
+
+  if (loginButton) {
+    loginButton.addEventListener("click", function (e) {
+      e.preventDefault();
+  
+      let loginEmail = document.getElementById("user-email").value.trim();
+      let loginPassword = document.getElementById("user-pwd").value.trim();
+  
+      if (!loginEmail || !loginPassword) {
+        alert("Please enter both email and password.");
+        return;
+      }
+  
+      // Construct the query URL with the email and password
+      let queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-email": "${loginEmail}", "user-pwd": "${loginPassword}"}`;
+  
+      fetch(queryURL, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": APIKEY,
+        }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Login failed. Please check your credentials.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Assuming the response is an array of users
+        if (data.length > 0) {
+          // User found, proceed with login
+          const loggedInUserName = data[0]["user-name"]; // Take the first user's name
+          localStorage.setItem("loggedInUser", loggedInUserName);
+          updateUserDisplay(loggedInUserName);
+          document.getElementById("login-contact-form").reset();
+        } else {
+          // No user found, handle accordingly
+          alert("No user found with these credentials.");
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+    });
+  }
+
+  function adjustCartCountPosition() {
+    const cartItemCount = document.getElementById('cart-item-count');
+    if (!cartItemCount) return; // Exit if cart item count doesn't exist
+
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        // User is logged in, adjust the position of the cart count
+        cartItemCount.classList.add('user-logged-in');
+    } else {
+        // User is not logged in, set the position back to default
+        cartItemCount.classList.remove('user-logged-in');
+    }
+  }
+  
+
+  function updateUserDisplay(userName) {
+    const userDisplayElement = document.getElementById('user-display');
+    const loginButton = document.getElementById('login-button');
+    const signUpButton = document.getElementById('signup-button');
+    const cartItemCount = document.getElementById('cart-item-count');
+    const logoutDropdown = document.querySelector('.dropdown'); // Make sure this selector matches your dropdown
+
+
+    if (!userName) {
+      userDisplayElement.style.display = 'none';
+      loginButton.style.display = 'block';
+      signUpButton.style.display = 'block';
+      cartItemCount.classList.remove('user-logged-in');
+      logoutDropdown.style.display = 'none'; // Hide the logout dropdown
+    } else {
+      userDisplayElement.textContent = `Welcome, ${userName}`;
+      userDisplayElement.style.display = 'block';
+      loginButton.style.display = 'none';
+      signUpButton.style.display = 'none';
+      cartItemCount.classList.add('user-logged-in');
+      logoutDropdown.style.display = 'block'; // Show the logout dropdown
+    }
+  }
+
+  function handleLogout() {
+    localStorage.removeItem('loggedInUser');
+    updateUserDisplay(null);
+    adjustCartCountPosition();
+    window.location.reload(); // Refresh the page to update UI
+  }
+
+  const logoutButton = document.getElementById('logout-button');
+  if (logoutButton) {
+    logoutButton.addEventListener('click', function () {
+      localStorage.removeItem('loggedInUser');
+      updateUserDisplay(null);
+      // No need to call adjustCartCountPosition or location.reload here
+      // since updateUserDisplay handles the UI update
+    });
+  }
+
+  // Check if user is logged in when the page loads
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  updateUserDisplay(loggedInUser); // This will set the correct UI state on page load
 
 });
+
  

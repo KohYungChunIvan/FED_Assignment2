@@ -55,12 +55,21 @@
               </ul>
               <!--Login / Sign up-->
               <div class="d-flex flex-column flex-lg-row align-items-center gap-3 px-3">
-                <div>
-                  <a href="#cart" class="text-black text-lg-white open-cart px-3">Cart</a>
-                  <span id="cart-item-count">0</span>
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div id="user-display" style="color: red; font-size: 20px;">Welcome, ivan</div>
+                    </a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#" id="logout-button">Log out</a></li>
+                    </ul>
                 </div>
-                <a href="login.html" id="auth-buttons" class="text-black text-lg-white">Login</a>
-                <a href="signup.html" id="auth-buttons" class="text-white text-decoration-none px-3 p-1 rounded-4"
+                <div>
+                    <a href="#cart" class="text-black text-lg-white open-cart px-3">Cart</a>
+                    <span id="cart-item-count">0</span>
+                </div>
+                <a href="login.html" id="login-button"  class="text-black text-lg-white">Login</a>
+                <a href="signup.html" id="signup-button" class="text-white text-decoration-none px-3 p-1 rounded-4"
                 style="background-color: #000000;"
                 >Sign Up</a>
               </div>
