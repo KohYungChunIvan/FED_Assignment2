@@ -274,8 +274,59 @@ function checkout() {
   updateCartItemCount();
   checkEmptyCart();
   toggleCart();
+
+
+  // Update user's points in the database
+  updateUserPoints(pointsEarned);
 }
 
+
+function updateUserPoints(pointsEarned) {
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  if (loggedInUser) {
+    let queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
+    
+    // Fetch the user's current data
+    fetch(queryURL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": APIKEY,
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.length > 0) {
+        const user = data[0];
+        const updatedPoints = (user.points || 0) + pointsEarned;
+
+        // Update user's points in the database
+        let updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
+        let jsondata = { "points": updatedPoints };
+
+        fetch(updateURL, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": APIKEY,
+          },
+          body: JSON.stringify(jsondata)
+        })
+        .then(response => response.json())
+        .then(updatedUser => {
+          console.log("Points updated:", updatedUser);
+        });
+      }
+    });
+  }
+}
+
+function displayUserPoints(points) {
+  const pointsDisplayElement = document.getElementById('user-points');
+  if (pointsDisplayElement) {
+    pointsDisplayElement.textContent = `Your Points: ${points}`;
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   let wheel = document.querySelector('.wheel');
@@ -356,6 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   localStorage.setItem('loggedInUser', userName);
                   // Update UI to reflect logged-in user
                   updateUserDisplay(userName);
+                  displayUserPoints(userPoints); // New function to display user points
                   document.getElementById("add-contact-form").reset();
                   document.getElementById("contact-submit").disabled = false;
                   // Redirect to homepage after successful signup
@@ -402,6 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const loggedInUserName = data[0]["user-name"]; // Take the first user's name
           localStorage.setItem("loggedInUser", loggedInUserName);
           updateUserDisplay(loggedInUserName);
+          displayUserPoints(userPoints); // New function to display user points
           document.getElementById("login-contact-form").reset();
           // Redirect to homepage after successful login
           window.location.href = 'index.html';
@@ -429,6 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cartItemCount.classList.remove('user-logged-in');
     }
   }
+  
   
 
   function updateUserDisplay(userName) {
