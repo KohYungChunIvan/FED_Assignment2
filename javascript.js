@@ -104,10 +104,6 @@ function addToCart(productName, productPrice, productImage) {
   // Add the cart item to the cart pop-up
   cartPopupContent.appendChild(cartItem);
 
-  // Show the cart pop-up
-  const cartPopup = document.querySelector('.cart-popup');
-  cartPopup.style.right = '0px';
-
   // Check if the cart has items and hide the "Your Cart is Empty" message
   checkEmptyCart();
   updateCartItemCount();
@@ -249,6 +245,8 @@ function checkout() {
 
   const cartItems = document.querySelectorAll('.cart-item');
   const checkoutButton = document.getElementById('checkout-button')
+  // Remove all items from local storage
+  localStorage.removeItem('cartData');
   // Remove each cart item
   cartItems.forEach((cartItem) => {
     cartItem.remove();
