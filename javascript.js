@@ -269,6 +269,15 @@ function checkout() {
     emptyCartMessage.style.display = 'none';
   }
 
+  // Calculate the total price from the cart items
+  const totalAmount = calculateTotalPrice();
+
+  // Assuming $1 spent earns 1 point
+  const pointsEarned = totalAmount;
+
+  // Update user's points
+  updateUserPoints(pointsEarned);
+
   // Update the cart total, item count, and check if the cart is empty
   updateCartTotal();
   updateCartItemCount();
@@ -276,22 +285,21 @@ function checkout() {
   toggleCart();
 
 
-  // Update user's points in the database
-  updateUserPoints(pointsEarned);
+  
 }
 
 
 function updateUserPoints(pointsEarned) {
+  const APIKEY = "65ab507be8b7cb2cc9ce52f9";
   const loggedInUser = localStorage.getItem('loggedInUser');
   if (loggedInUser) {
     let queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
     
-    // Fetch the user's current data
     fetch(queryURL, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "x-apikey": APIKEY,
+        "x-apikey": APIKEY, // Make sure APIKEY is defined elsewhere or hardcode it here
       }
     })
     .then(response => response.json())
@@ -299,34 +307,54 @@ function updateUserPoints(pointsEarned) {
       if (data.length > 0) {
         const user = data[0];
         const updatedPoints = (user.points || 0) + pointsEarned;
-
-        // Update user's points in the database
         let updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
-        let jsondata = { "points": updatedPoints };
 
-        fetch(updateURL, {
+        return fetch(updateURL, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
             "x-apikey": APIKEY,
           },
-          body: JSON.stringify(jsondata)
-        })
-        .then(response => response.json())
-        .then(updatedUser => {
-          console.log("Points updated:", updatedUser);
+          body: JSON.stringify({ "points": updatedPoints })
         });
+      } else {
+        throw new Error('User not found.');
       }
+    })
+    .then(response => response.json())
+    // After successful update to the database
+    .then(updatedUser => {
+      console.log("Points updated:", updatedUser);
+      // Update points in local storage
+      localStorage.setItem('userPoints', updatedUser.points);
+      // Update the points display
+      displayUserPoints();
+    })
+    .catch(error => {
+      console.error('Error updating points:', error);
     });
+  } else {
+    console.error('User is not logged in.');
   }
 }
 
-function displayUserPoints(points) {
+function displayUserPoints() {
+  // Retrieve points from local storage
+  const points = localStorage.getItem('userPoints');
   const pointsDisplayElement = document.getElementById('user-points');
-  if (pointsDisplayElement) {
+  
+  if (pointsDisplayElement && points) {
     pointsDisplayElement.textContent = `Your Points: ${points}`;
+  } else {
+    // Handle case where points or element is not found
+    console.log('Points display element or points not found.');
   }
 }
+
+// Call this function on page load to display points
+document.addEventListener("DOMContentLoaded", function () {
+  displayUserPoints();
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   let wheel = document.querySelector('.wheel');
@@ -368,7 +396,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
+// API
 
 document.addEventListener("DOMContentLoaded", function () {
   const APIKEY = "65ab507be8b7cb2cc9ce52f9";
@@ -387,8 +415,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "user-name": userName,
               "user-email": userEmail,
               "user-pwd": userPwd,
+              "points": 0 // Explicitly set to 0 for new users
           };
-
+      
           let settings = {
               method: "POST",
               headers: {
@@ -403,15 +432,17 @@ document.addEventListener("DOMContentLoaded", function () {
               .then(response => response.json())
               .then(data => {
                   console.log(data);
-                  // Store user information in localStorage
+                  // Check if points exist in response
+                  const points = data.points !== undefined ? data.points : 0;
                   localStorage.setItem('loggedInUser', userName);
-                  // Update UI to reflect logged-in user
+                  localStorage.setItem('userPoints', points); // Set to 0 if undefined
                   updateUserDisplay(userName);
-                  displayUserPoints(userPoints); // New function to display user points
+                  displayUserPoints(points); // Display the points
                   document.getElementById("add-contact-form").reset();
-                  document.getElementById("contact-submit").disabled = false;
-                  // Redirect to homepage after successful signup
                   window.location.href = 'index.html';
+              })
+              .catch(error => {
+                  console.error('Error creating account:', error);
               });
       });
   }
@@ -422,18 +453,17 @@ document.addEventListener("DOMContentLoaded", function () {
   if (loginButton) {
     loginButton.addEventListener("click", function (e) {
       e.preventDefault();
-  
+
       let loginEmail = document.getElementById("user-email").value.trim();
       let loginPassword = document.getElementById("user-pwd").value.trim();
-  
+
       if (!loginEmail || !loginPassword) {
         alert("Please enter both email and password.");
         return;
       }
-  
-      // Construct the query URL with the email and password
+
       let queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-email": "${loginEmail}", "user-pwd": "${loginPassword}"}`;
-  
+
       fetch(queryURL, {
         method: "GET",
         headers: {
@@ -448,22 +478,22 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        // Assuming the response is an array of users
         if (data.length > 0) {
-          // User found, proceed with login
-          const loggedInUserName = data[0]["user-name"]; // Take the first user's name
-          localStorage.setItem("loggedInUser", loggedInUserName);
-          updateUserDisplay(loggedInUserName);
-          displayUserPoints(userPoints); // New function to display user points
+          const user = data[0];
+          localStorage.setItem("loggedInUser", user["user-name"]);
+          // Assume the server sends back the points in the response
+          localStorage.setItem("userPoints", user.points); 
+          updateUserDisplay(user["user-name"]);
+          // Update the points display with the retrieved points
+          displayUserPoints(user.points);
           document.getElementById("login-contact-form").reset();
-          // Redirect to homepage after successful login
           window.location.href = 'index.html';
         } else {
-          // No user found, handle accordingly
           alert("No user found with these credentials.");
         }
       })
       .catch((error) => {
+        console.error('Error during login:', error);
         alert(error.message);
       });
     });
@@ -510,20 +540,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleLogout() {
+    // Clear all user-specific information from localStorage
     localStorage.removeItem('loggedInUser');
-    updateUserDisplay(null);
-    adjustCartCountPosition();
-    window.location.reload(); // Refresh the page to update UI
+    localStorage.removeItem('userPoints'); // Make sure to remove the points
+    
+    // Update UI to reflect the user is logged out
+    updateUserDisplay(null); // Reset the user display
+    displayUserPoints(); // Reset the points display
+    adjustCartCountPosition(); // Adjust the cart count position if necessary
+    
+    // Optionally, reload the page to ensure all user data is cleared from the UI
+    window.location.reload();
   }
+
 
   const logoutButton = document.getElementById('logout-button');
   if (logoutButton) {
-    logoutButton.addEventListener('click', function () {
-      localStorage.removeItem('loggedInUser');
-      updateUserDisplay(null);
-      // No need to call adjustCartCountPosition or location.reload here
-      // since updateUserDisplay handles the UI update
-    });
+      logoutButton.addEventListener('click', handleLogout); // Just pass the function reference here
   }
 
   // Check if user is logged in when the page loads
