@@ -360,6 +360,8 @@ document.addEventListener("DOMContentLoaded", function () {
                   updateUserDisplay(userName);
                   document.getElementById("add-contact-form").reset();
                   document.getElementById("contact-submit").disabled = false;
+                  // Redirect to homepage after successful signup
+                  window.location.href = 'index.html';
               });
       });
   }
@@ -403,6 +405,8 @@ document.addEventListener("DOMContentLoaded", function () {
           localStorage.setItem("loggedInUser", loggedInUserName);
           updateUserDisplay(loggedInUserName);
           document.getElementById("login-contact-form").reset();
+          // Redirect to homepage after successful login
+          window.location.href = 'index.html';
         } else {
           // No user found, handle accordingly
           alert("No user found with these credentials.");
