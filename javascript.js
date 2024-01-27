@@ -104,10 +104,6 @@ function addToCart(productName, productPrice, productImage) {
   // Add the cart item to the cart pop-up
   cartPopupContent.appendChild(cartItem);
 
-  // Show the cart pop-up
-  const cartPopup = document.querySelector('.cart-popup');
-  cartPopup.style.right = '0px';
-
   // Check if the cart has items and hide the "Your Cart is Empty" message
   checkEmptyCart();
   updateCartItemCount();
@@ -249,6 +245,8 @@ function checkout() {
 
   const cartItems = document.querySelectorAll('.cart-item');
   const checkoutButton = document.getElementById('checkout-button')
+  // Remove all items from local storage
+  localStorage.removeItem('cartData');
   // Remove each cart item
   cartItems.forEach((cartItem) => {
     cartItem.remove();
@@ -270,19 +268,18 @@ function checkout() {
   } else {
     emptyCartMessage.style.display = 'none';
   }
-  // Calculate total price from cart items and convert it to points
-  const totalAmount = calculateTotalPrice();
-  const pointsEarned = totalAmount; // Assuming $1 = 1 point
-
-  // Update user's points in the database
-  updateUserPoints(pointsEarned);
 
   // Update the cart total, item count, and check if the cart is empty
   updateCartTotal();
   updateCartItemCount();
   checkEmptyCart();
   toggleCart();
+
+
+  // Update user's points in the database
+  updateUserPoints(pointsEarned);
 }
+
 
 function updateUserPoints(pointsEarned) {
   const loggedInUser = localStorage.getItem('loggedInUser');
