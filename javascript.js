@@ -113,9 +113,60 @@ function addToCart(productName, productPrice, productImage) {
   updateCartItemCount();
   // Update the cart total
   updateCartTotal();
-  updateCheckoutButtonVisibility()
+  updateCheckoutButtonVisibility();
+  saveCartToLocalStorage();
+}
+// Function to save cart data to local storage
+function saveCartToLocalStorage() {
+  const cartItems = document.querySelectorAll('.cart-item');
+  const cartData = [];
+
+  cartItems.forEach((cartItem) => {
+    const itemName = cartItem.querySelector('.product-details h6').textContent;
+    const itemPrice = parseFloat(cartItem.getAttribute('data-price'));
+    const itemImage = cartItem.querySelector('.cart-item-image').src;
+
+    const item = {
+      name: itemName,
+      price: itemPrice,
+      image: itemImage,
+    };
+
+    cartData.push(item);
+  });
+
+  // Save cart data to local storage
+  localStorage.setItem('cartData', JSON.stringify(cartData));
+}
+// Function to load cart data from local storage
+function loadCartFromLocalStorage() {
+  const cartData = localStorage.getItem('cartData');
+  if (cartData) {
+    const parsedCartData = JSON.parse(cartData);
+
+    // Clear existing cart items
+    const cartPopupContent = document.querySelector('.cart-popup-content');
+    cartPopupContent.innerHTML = '';
+
+    // Add each item from local storage to the cart
+    parsedCartData.forEach((item) => {
+      addToCart(item.name, item.price, item.image);
+    });
+
+    // Update cart total and item count
+    updateCartTotal();
+    updateCartItemCount();
+  }
 }
 
+// Call loadCartFromLocalStorage on page load
+window.addEventListener('load', loadCartFromLocalStorage);
+// Call saveCartToLocalStorage when removing items from the cart
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('cart-delete-button')) {
+    removeFromCart(event.target.closest('.cart-item'));
+  }
+});
 // Function to check if the cart is empty and show/hide the "Your Cart is Empty" message
 function checkEmptyCart() {
   const cartPopupContent = document.querySelector('.cart-popup-content');
@@ -160,6 +211,9 @@ function updateCartTotal() {
 // Function to remove items from the cart
 function removeFromCart(cartItem) {
   cartItem.remove();
+  
+  // Save updated cart data to local storage
+  saveCartToLocalStorage();
   
   // Update the cart total
   updateCartTotal();
