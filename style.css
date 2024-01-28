@@ -432,6 +432,19 @@ footer {
     padding: 20px;
     font-size: 20px;
 }
+.notification-banner {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #762929; /* Green background */
+    color: white; /* White text */
+    text-align: center; /* Centered text */
+    padding: 10px; /* Some padding */
+    z-index: 1000; /* High z-index to show on top */
+    transition: opacity 0.5s ease-in-out; /* Transition for fade effect */
+}
 .checkout-box{
     display: block;
     padding: 0 0 0 30px;

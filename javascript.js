@@ -46,6 +46,30 @@ function toggleCart() {
   const cartPopup = document.querySelector('.cart-popup');
   cartPopup.style.right = cartPopup.style.right === '0px' ? '-500px' : '0px';
 }
+function showNotificationBanner(message) {
+  var notificationBanner = document.getElementById('notification-banner');
+  if (!notificationBanner) {
+    // Create the banner if it does not exist
+    notificationBanner = document.createElement('div');
+    notificationBanner.id = 'notification-banner';
+    notificationBanner.className = 'notification-banner';
+    document.body.insertBefore(notificationBanner, document.body.firstChild); // Add it at the top of the body
+  }
+  
+  // Set the message and make the banner visible
+  notificationBanner.textContent = message;
+  notificationBanner.style.display = 'block';
+  notificationBanner.style.opacity = '1';
+  
+  // Use setTimeout to hide the banner after 3 seconds
+  setTimeout(function() {
+    notificationBanner.style.opacity = '0';
+    // Set another timeout to hide the banner after the fade out transition
+    setTimeout(function() {
+      notificationBanner.style.display = 'none';
+    }, 500); // This should match the transition time in the CSS
+  }, 1500);
+}
 
 // Function to add items to the cart
 function addToCart(productName, productPrice, productImage) {
@@ -103,6 +127,9 @@ function addToCart(productName, productPrice, productImage) {
 
   // Add the cart item to the cart pop-up
   cartPopupContent.appendChild(cartItem);
+
+  // Show notification banner
+  showNotificationBanner('Added "' + productName + '" to cart');
 
   // Check if the cart has items and hide the "Your Cart is Empty" message
   checkEmptyCart();
