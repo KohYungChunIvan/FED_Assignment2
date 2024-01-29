@@ -2,6 +2,7 @@
 
 var cards = document.querySelectorAll('.product-box');
 
+
 [...cards].forEach((card)=>{
     card.addEventListener('mouseover', function(){
         card.classList.add('is-hover');
@@ -25,6 +26,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }, { threshold: 0.25 }); // 0.25 means 25% of the item is in view
   
     observer.observe(videoElement);
+    // Load cart from local storage
+    loadCartFromLocalStorage();
+
+   
+    
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -68,7 +74,7 @@ function showNotificationBanner(message) {
     setTimeout(function() {
       notificationBanner.style.display = 'none';
     }, 500); // This should match the transition time in the CSS
-  }, 1500);
+  }, 1200);
 }
 
 // Function to add items to the cart
@@ -127,9 +133,10 @@ function addToCart(productName, productPrice, productImage) {
 
   // Add the cart item to the cart pop-up
   cartPopupContent.appendChild(cartItem);
+  
 
   // Show notification banner
-  showNotificationBanner('Added "' + productName + '" to cart');
+  showNotificationBanner('Enjoy Your Shopping');
 
   // Check if the cart has items and hide the "Your Cart is Empty" message
   checkEmptyCart();
@@ -266,6 +273,8 @@ function updateCheckoutButtonVisibility() {
   // If there are items in the cart, show the checkout button; otherwise, hide it
   checkoutButton.style.display = cartItems.length > 0 ? 'block' : 'none';
 }
+
+/*
 function checkout() {
   //Checkout
   alert("Proceeding to checkout!");
@@ -296,14 +305,17 @@ function checkout() {
     emptyCartMessage.style.display = 'none';
   }
 
-  // Calculate the total price from the cart items
   const totalAmount = calculateTotalPrice();
-
-  // Assuming $1 spent earns 1 point
   const pointsEarned = totalAmount;
-
-  // Update user's points
-  updateUserPoints(pointsEarned);
+  console.log('Points to be earned from checkout:', pointsEarned);
+  // Make sure this logs the correct value
+  updateUserPoints(pointsEarned).then(() => {
+    // Code here will run after updateUserPoints has finished.
+    // This is where you should read the updated points from local storage
+    // and update the UI accordingly.
+    displayUserPoints();
+  });
+  
 
   // Update the cart total, item count, and check if the cart is empty
   updateCartTotal();
@@ -314,66 +326,103 @@ function checkout() {
 
   
 }
+*/
 
+// Function to checkout, update user points, and clear the cart
+async function checkout() {
+  alert("Proceeding to checkout!");
 
-function updateUserPoints(pointsEarned) {
-  const APIKEY = "65ab507be8b7cb2cc9ce52f9";
-  const loggedInUser = localStorage.getItem('loggedInUser');
-  if (loggedInUser) {
-    let queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
-    
-    fetch(queryURL, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "x-apikey": APIKEY, // Make sure APIKEY is defined elsewhere or hardcode it here
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.length > 0) {
-        const user = data[0];
-        const updatedPoints = (user.points || 0) + pointsEarned;
-        let updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
+  const cartItems = document.querySelectorAll('.cart-item');
+  const checkoutButton = document.getElementById('checkout-button');
+  
+  // Calculate the total price from the cart items
+  const totalAmount = calculateTotalPrice();
 
-        return fetch(updateURL, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "x-apikey": APIKEY,
-          },
-          body: JSON.stringify({ "points": updatedPoints })
-        });
-      } else {
-        throw new Error('User not found.');
-      }
-    })
-    .then(response => response.json())
-    // After successful update to the database
-    .then(updatedUser => {
-      console.log("Points updated:", updatedUser);
-      // Update points in local storage
-      localStorage.setItem('userPoints', updatedUser.points);
-      // Update the points display
-      displayUserPoints();
-    })
-    .catch(error => {
-      console.error('Error updating points:', error);
-    });
-  } else {
-    console.error('User is not logged in.');
+  // Assuming $1 spent earns 1 point
+  const pointsEarned = totalAmount;
+
+  console.log('Points to be earned from checkout:', pointsEarned);
+
+  try {
+    await updateUserPoints(pointsEarned);
+    localStorage.removeItem('cartData');
+    cartItems.forEach(cartItem => cartItem.remove());
+
+    checkoutButton.style.display = 'none';
+    document.getElementById('total-amount').textContent = '0.00';
+    document.querySelector('.cart-total').style.display = 'none';
+    document.querySelector('.empty-cart-title').style.display = 'block';
+
+    updateCartItemCount();
+    updateCartTotal();
+    toggleCart();
+  } catch (error) {
+    console.error('Error during checkout:', error);
+    alert("There was an issue during the checkout process. Please try again.");
   }
 }
 
+
+
+async function updateUserPoints(pointsEarned) {
+  const APIKEY = "65ab507be8b7cb2cc9ce52f9";
+  const loggedInUser = localStorage.getItem('loggedInUser');
+
+  if (!loggedInUser) {
+    console.error('User is not logged in.');
+    return;
+  }
+
+  const queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
+
+  try {
+    const getUserResponse = await fetch(queryURL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": APIKEY
+      }
+    });
+
+    const users = await getUserResponse.json();
+
+    if (users.length > 0) {
+      const user = users[0];
+      const updatedPoints = (user.points || 0) + pointsEarned;
+      const updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
+
+      const updateResponse = await fetch(updateURL, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": APIKEY
+        },
+        body: JSON.stringify({ "points": updatedPoints })
+      });
+
+      if (!updateResponse.ok) throw new Error(`HTTP error! status: ${updateResponse.status}`);
+
+      const updatedUser = await updateResponse.json();
+      console.log("Points updated:", updatedUser);
+      localStorage.setItem('userPoints', updatedUser.points);
+      displayUserPoints();
+    } else {
+      throw new Error('User not found.');
+    }
+  } catch (error) {
+    console.error('Error updating points:', error);
+  }
+}
+
+
+
 function displayUserPoints() {
-  // Retrieve points from local storage
   const points = localStorage.getItem('userPoints');
   const pointsDisplayElement = document.getElementById('user-points');
   
   if (pointsDisplayElement && points) {
     pointsDisplayElement.textContent = `Your Points: ${points}`;
   } else {
-    // Handle case where points or element is not found
     console.log('Points display element or points not found.');
   }
 }
