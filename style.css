@@ -11,22 +11,10 @@ body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    align-items: center;
+    justify-content: center;
 }
 
-.profile-pic{
-    display: inline-block;
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-    border-radius: 50%;
- }
- 
- .profile-pic img{
-    width: 100%;
-    height: auto;
-    object-fit: cover;
- }
 
 .carousel-caption {
     margin-bottom: 110px;
@@ -48,6 +36,109 @@ body{
     align-items: center;
     justify-content: space-between;
     
+}
+
+.card {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease;
+    
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+    
+}
+
+.card:hover img {
+    transform: scale(1.1); /* Slightly zoom in the image */
+}
+
+.card-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    text-align: center;
+}
+
+.card:hover .card-info {
+    visibility: visible;
+    opacity: 1  ;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.card-button {
+    background-color: #819c8e;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 60px;
+}
+
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+.image-container {
+    width: 150px; /* Adjust based on your preference */
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Make the image round */
+    transition: transform 0.5s ease-in-out;
+}
+
+.image-container:hover img {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Specific styles for the bottom image to center it */
+.image-container.bottom {
+    order: 3; /* Makes sure this container goes to the next row in flexbox */
+    flex: 0 0 100%; /* Takes full width to center the image */
 }
 
 
@@ -487,6 +578,72 @@ footer {
     padding: 0.25rem 1rem; /* Reduced padding */
 }
 
+.banner {
+    object-fit: cover;
+    height: 700px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.snake-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.snake {
+    width: 65vmin;
+    height: 70vmin;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    background: #1f2b3f;
+    box-shadow: 0 20px 40px rgba(52, 87, 220, 0.2);
+}
+.game-details {
+    color: #a3abb7;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 20px 27px;
+    display: flex;
+    justify-content: space-between;
+}
+.play-board {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    background: #010101;
+    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+}
+.play-board .food {
+    background: #ff0000;
+    animation: pulse 1s infinite;
+}
+.play-board .head {
+    background: #00ff6a;
+}
+
+.controls {
+    display: none;
+    justify-content: space-between;
+}
+.controls i {
+    padding: 25px 0;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #B8C6DC;
+    width: calc(100% / 4);
+    cursor: pointer;
+    border-right: 1px solid #171B26;
+}
+.play-board .head,
+.play-board .body {
+    transition: transform 0.1s;
+}
+
 @media(max-width: 991px){
     .sidebar{
         background-color: rgba(0, 0, 0, 0.15);
@@ -500,8 +657,40 @@ footer {
     .text-lg-white {
         color: white !important;
     }
-}
 
+    .game-container {
+        width: 90vmin;
+        height: 115vmin;
+    }
+
+    .game-info {
+        font-size: 1rem;
+        padding: 15px 27px;
+    }
+
+    .game-controls {
+        display: flex;
+    }
+
+    .game-controls .control-btn {
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+}
+@keyframes pulse {
+    0% {
+    transform: scale(1);
+    opacity: 1;
+    }
+    50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+    }
+    100% {
+    transform: scale(1);
+    opacity: 1;
+    }
+}
 
 @media(max-width: 1920px) {
     #cart-item-count {
@@ -531,5 +720,14 @@ footer {
     #cart-item-count.user-logged-in {
         right: 30.1vw; /* Adjusted position when user is logged in */
         
+    }
+}
+@media (min-width: 600px) {
+    .image-gallery {
+        justify-content: space-around;
+    }
+
+    .image-container.bottom {
+        flex: 0 0 auto; /* Allows the container to maintain its size */
     }
 }

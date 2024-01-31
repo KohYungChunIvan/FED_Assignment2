@@ -122,3 +122,7 @@ https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-ava
 https://success-cms.labs.livechatinc.com/app/uploads/2019/09/7651225810_ae9678ccbc_h-e1583178122833.jpg
 
 https://i.pinimg.com/originals/f7/14/4a/f7144a5bec1c2f6298160b08d6d21f67.jpg
+
+https://img.freepik.com/premium-vector/cartoon-fortune-wheel-illustration_313905-1218.jpg?size=626&ext=jpg&ga=GA1.2.342726521.1706106088&semt=ais
+
+https://marketplace.canva.com/EAFSLlHCnKE/1/0/1600w/canva-purple-illustrative-pixel-art-game-presentation-P5ydS9YbQwQ.jpg
