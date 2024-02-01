@@ -57,6 +57,12 @@ Tested across multiple browsers (Chrome, Firefox, Safari) and devices (desktop, 
 
 Credits:
 
+Snake Game Reference: https://www.youtube.com/watch?v=baBq5GAL0_U
+
+Spin the Wheel Reference: https://www.youtube.com/watch?v=F3-lK_-PQr0&t=600s 
+
+Flappy Bird Reference: https://www.codewithrandom.com/2023/11/24/flappy-bird-game-using-html-javascript/
+
 https://assets.burberry.com/is/image/Burberryltd/D68F00A9-942A-4FBB-BE1D-A5DB50F32018?$BBY_V3_UNSHARP_SL_1$&wid=4000&hei=4000
 
 https://www.dior.com/couture/ecommerce/media/catalog/product/5/S/1701194770_1ADBA041YKS_H00N_E03_ZH.jpg
@@ -126,3 +132,7 @@ https://i.pinimg.com/originals/f7/14/4a/f7144a5bec1c2f6298160b08d6d21f67.jpg
 https://img.freepik.com/premium-vector/cartoon-fortune-wheel-illustration_313905-1218.jpg?size=626&ext=jpg&ga=GA1.2.342726521.1706106088&semt=ais
 
 https://marketplace.canva.com/EAFSLlHCnKE/1/0/1600w/canva-purple-illustrative-pixel-art-game-presentation-P5ydS9YbQwQ.jpg
+
+https://c4.wallpaperflare.com/wallpaper/104/820/976/firewatch-video-game-art-minimalism-simple-hd-wallpaper-preview.jpg
+
+https://static.vecteezy.com/system/resources/previews/010/642/074/non_2x/graphic-fluorescent-perspective-neon-room-floor-abstract-wallpaper-light-space-illustration-3d-render-cyber-club-electronic-game-glowing-illumination-laser-cool-illusion-shape-free-photo.jpg
