@@ -361,6 +361,8 @@ async function checkout() {
 async function updateUserPoints(pointsEarned) {
   const APIKEY = "65ab507be8b7cb2cc9ce52f9";
   const loggedInUser = localStorage.getItem('loggedInUser');
+  const loggedInEmail = localStorage.getItem('loggedInEmail');
+  const loggedInPwd = localStorage.getItem('loggedInPwd');
 
   if (!loggedInUser) {
     console.error('User is not logged in.');
@@ -384,16 +386,21 @@ async function updateUserPoints(pointsEarned) {
       const user = users[0];
       const updatedPoints = (user.points || 0) + pointsEarned;
       const updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
+      let datajson = {
+        "user-name": loggedInUser,
+        "user-email": loggedInEmail,
+        "user-pwd": loggedInPwd,
+        "points": updatedPoints
 
+      }
       const updateResponse = await fetch(updateURL, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           "x-apikey": APIKEY
         },
-        body: JSON.stringify({ "points": updatedPoints }) // This should match your database field
+        body: JSON.stringify(datajson) // This should match your database field
       });
-
       if (!updateResponse.ok) throw new Error(`HTTP error! status: ${updateResponse.status}`);
 
       const updatedUser = await updateResponse.json();
@@ -509,8 +516,10 @@ document.addEventListener("DOMContentLoaded", function () {
                   console.log(data);
                   // Check if points exist in response
                   const points = data.points !== undefined ? data.points : 0;
-                  localStorage.setItem('loggedInUser', userName);
-                  localStorage.setItem('userPoints', points); // Set to 0 if undefined
+                  localStorage.setItem("loggedInUser", userName);
+                  localStorage.setItem("loggedInEmail", userEmail);
+                  localStorage.setItem("loggedInPwd", userPwd);
+                  localStorage.setItem("userPoints", points); // Set to 0 if undefined
                   updateUserDisplay(userName);
                   displayUserPoints(points); // Display the points
                   document.getElementById("add-contact-form").reset();
@@ -556,6 +565,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (data.length > 0) {
           const user = data[0];
           localStorage.setItem("loggedInUser", user["user-name"]);
+          localStorage.setItem("loggedInEmail", user["user-email"]);
+          localStorage.setItem("loggedInPwd", user["user-pwd"]);
           // Assume the server sends back the points in the response
           localStorage.setItem("userPoints", user.points); 
           updateUserDisplay(user["user-name"]);
@@ -617,6 +628,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleLogout() {
     // Clear all user-specific information from localStorage
     localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('loggedInEmail');
+    localStorage.removeItem('loggedInPwd');
     localStorage.removeItem('userPoints'); // Make sure to remove the points
     
     // Update UI to reflect the user is logged out
