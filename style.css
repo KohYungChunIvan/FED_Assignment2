@@ -194,6 +194,32 @@ body{
     transition: all 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
+.game-btn {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none; /* Prevents interaction when not visible */
+}
+.product-box:hover .game-btn,
+.product-box.is-hover .game-btn{
+    opacity: 1;
+    pointer-events: auto; /* Allows interaction when visible */
+}
+/* Remove the hover effect from the button */
+.btn-white,
+.btn-white:hover, /* Add hover state here to ensure it doesn't change on hover */
+.game-btn:hover .btn-white { /* Target the button within .game-btn specifically on hover */
+    background-color: #c2a8a8; /* Keeps the button pink */
+    color: #fff; /* Keeps the text color white */
+    /* No change to opacity or background on hover */
+}
+
+/* Additional style for svg to ensure it doesn't change color on hover if needed */
+.game-btn:hover svg {
+    fill: #fff; /* Adjust the color as needed, this is an example to keep it white */
+}
 
 .btn-white {
     background-color: #c2a8a8;
@@ -434,6 +460,8 @@ footer {
     align-items: center;
     min-height: 100vh;
     background-color: #363232;
+    background-image: url(photos/game1bg.jpg);
+    background-size: cover;
 }
 
 .spin-text {
@@ -623,7 +651,7 @@ footer {
     animation: pulse 1s infinite;
 }
 .play-board .head {
-    background: #00ff6a;
+    background: #ffff0a;
 }
 
 .controls {
@@ -651,6 +679,17 @@ footer {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.flappy-container {
+    font-family: 'Pacifico';
+    margin-top: 100px;    
+}
+
+canvas{
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto;
 }
 
 @media(max-width: 991px){
