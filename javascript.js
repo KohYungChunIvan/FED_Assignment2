@@ -611,9 +611,94 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+async function redeem(points) {
+  alert("Proceeding to redeem!");
+  const pointsDeducted = points;
+  console.log(pointsDeducted);
+  try {
+    // Ensure this function completes successfully
+    await deductUserPoints(pointsDeducted);
+  } catch (error) {
+    console.error('Error during redeem:', error);
+    alert("There was an issue during the redeeming process. Please try again.");
+  }
+}
 
+// Revised updateUserPoints function
+async function deductUserPoints(pointsDeducted) {
+  const APIKEY = "65ab507be8b7cb2cc9ce52f9";
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  const loggedInEmail = localStorage.getItem('loggedInEmail');
+  const loggedInPwd = localStorage.getItem('loggedInPwd');
 
+  if (!loggedInUser) {
+    console.error('User is not logged in.');
+    return;
+  }
+  const queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
 
+  try {
+    const getUserResponse = await fetch(queryURL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": APIKEY
+      }
+    });
 
+    const users = await getUserResponse.json();
 
+    if (users.length > 0) {
+      const user = users[0];
+      let originalPoints = (user.points || 0);
+      let updatedPoints = originalPoints - pointsDeducted;
+      if(updatedPoints >= 0){
+        
+      
+      const updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
+      let deductdatajson = {
+        "user-name": loggedInUser,
+        "user-email": loggedInEmail,
+        "user-pwd": loggedInPwd,
+        "points": updatedPoints
 
+      }
+      const updateResponse = await fetch(updateURL, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": APIKEY
+        },
+        body: JSON.stringify(deductdatajson) // This should match your database field
+      });
+      if (!updateResponse.ok) throw new Error(`HTTP error! status: ${updateResponse.status}`);
+
+      const updatedUser = await updateResponse.json();
+      console.log("Points updated:", updatedUser);
+
+      // Ensure local storage is updated here
+      localStorage.setItem('userPoints', updatedUser.points);
+      displayUserPoints();
+      alert('Success!')
+      }
+      if(updatedPoints <= 0){
+        updatedPoints = originalPoints;
+        alert('Not enough points to redeem.')
+      }
+    } else {
+      throw new Error('User not found.');
+    }
+  } catch (error) {
+    console.error('Error updating points:', error);
+    // Handle errors appropriately
+  }
+}
+
+function redeemAndAddToCart(points, itemName, itemId, imagePath){
+  const Pts = localStorage.getItem('userPoints');
+  console.log(Pts);
+  redeem(points);
+  if (Pts >= points){
+    addToCart(itemName, itemId, imagePath);
+  }
+}
