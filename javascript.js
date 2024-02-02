@@ -702,3 +702,40 @@ function redeemAndAddToCart(points, itemName, itemId, imagePath){
     addToCart(itemName, itemId, imagePath);
   }
 }
+
+
+
+// Attempt to deduct points and play the game
+async function playGame(gameUrl, entryFee) {
+  const currentPoints = parseInt(localStorage.getItem('userPoints') || '0');
+
+  if (currentPoints < entryFee) {
+    alert('Not enough points to play the game. You need at least ' + entryFee + ' points.');
+    return; // Exit if not enough points
+  }
+
+  // Attempt to deduct points
+  await deductUserPoints(entryFee);
+
+  // Re-check the points after deduction attempt
+  const updatedPoints = parseInt(localStorage.getItem('userPoints') || '0');
+  
+  if (updatedPoints < currentPoints) { // Assuming points were successfully deducted
+    alert(`Points have been deducted. You now have ${updatedPoints} points.`);
+    window.location.href = gameUrl; // Redirect to the game URL
+  } else {
+    // Handle case where points might not have been deducted
+    alert("There was an issue starting the game. Please try again.");
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const gameButtons = document.querySelectorAll('.game-btn a');
+  gameButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const gameUrl = this.getAttribute('href');
+      const entryFee = 200; // Adjust as necessary for each game
+      playGame(gameUrl, entryFee);
+    });
+  });
+});
