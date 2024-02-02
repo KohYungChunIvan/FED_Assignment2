@@ -681,7 +681,7 @@ async function deductUserPoints(pointsDeducted) {
       displayUserPoints();
       alert('Success!')
       }
-      if(updatedPoints <= 0){
+      if(updatedPoints < 0){
         updatedPoints = originalPoints;
         alert('Not enough points to redeem.')
       }
