@@ -1,111 +1,103 @@
 // Second game (Snake game)
-const playBoard = document.querySelector(".play-board");
-const scoreElement = document.querySelector(".score");
-const highScoreElement = document.querySelector(".high-score");
-const controls = document.querySelectorAll(".controls i");
 
-const gameOverSound = new Audio('photos/gameover.mp3'); // Make sure the path is correct
+const gameArea = document.querySelector(".play-board");
+const currentScoreDisplay = document.querySelector(".score");
+const topScoreDisplay = document.querySelector(".high-score");
+const directionControls = document.querySelectorAll(".controls i");
 
-gameOverSound.load(); // Preload the game over sound
+const soundGameOver = new Audio('photos/gameover.mp3'); // Verify path correctness
 
-const eatSoundPath = 'photos/eatsound.mp3'; // Make sure the path is correct
+soundGameOver.load(); // Preload the game over sound
 
+const soundFoodEatenPath = 'photos/eatsound.mp3'; // Verify path correctness
 
+let isGameOver = false;
+let targetX, targetY;
+let playerX = 5, playerY = 5;
+let moveX = 0, moveY = 0;
+let playerTrail = [];
+let gameInterval;
+let currentScore = 0;
 
-let gameOver = false;
-let foodX, foodY;
-let snakeX = 5, snakeY = 5;
-let velocityX = 0, velocityY = 0;
-let snakeBody = [];
-let setIntervalId;
-let score = 0;
+// Retrieve the high score from local storage
+let topScore = localStorage.getItem("high-score") || 0;
+topScoreDisplay.innerText = `High Score: ${topScore}`;
 
-// Getting high score from the local storage
-let highScore = localStorage.getItem("high-score") || 0;
-highScoreElement.innerText = `High Score: ${highScore}`;
-
-const updateFoodPosition = () => {
-    // Passing a random 1 - 30 value as food position
-    foodX = Math.floor(Math.random() * 30) + 1;
-    foodY = Math.floor(Math.random() * 30) + 1;
+const generateTargetPosition = () => {
+    // Random 1 - 30 values for target position
+    targetX = Math.floor(Math.random() * 30) + 1;
+    targetY = Math.floor(Math.random() * 30) + 1;
 }
-const eat = () => {
-  let soundToPlay = new Audio(eatSoundPath);
-  soundToPlay.play();
+
+const consume = () => {
+  let playSound = new Audio(soundFoodEatenPath);
+  playSound.play();
 };
 
-const handleGameOver = () => {
-    gameOverSound.currentTime = 0; // Rewind to the start
-    gameOverSound.play();
-    // Clearing the timer and reloading the page on game over
-    clearInterval(setIntervalId);
+const endGame = () => {
+    soundGameOver.currentTime = 0; // Start from beginning
+    soundGameOver.play();
+    clearInterval(gameInterval);
     alert("Game Over! Press OK to replay...");
     location.reload();
 }
 
-const changeDirection = e => {
-    // Changing velocity value based on key press
-    if(e.key === "ArrowUp" && velocityY != 1) {
-        velocityX = 0;
-        velocityY = -1;
-    } else if(e.key === "ArrowDown" && velocityY != -1) {
-        velocityX = 0;
-        velocityY = 1;
-    } else if(e.key === "ArrowLeft" && velocityX != 1) {
-        velocityX = -1;
-        velocityY = 0;
-    } else if(e.key === "ArrowRight" && velocityX != -1) {
-        velocityX = 1;
-        velocityY = 0;
+const modifyDirection = e => {
+    // Update movement direction based on key press
+    if(e.key === "ArrowUp" && moveY != 1) {
+        moveX = 0;
+        moveY = -1;
+    } else if(e.key === "ArrowDown" && moveY != -1) {
+        moveX = 0;
+        moveY = 1;
+    } else if(e.key === "ArrowLeft" && moveX != 1) {
+        moveX = -1;
+        moveY = 0;
+    } else if(e.key === "ArrowRight" && moveX != -1) {
+        moveX = 1;
+        moveY = 0;
     }
 }
 
-// Calling changeDirection on each key click and passing key dataset value as an object
-controls.forEach(button => button.addEventListener("click", () => changeDirection({ key: button.dataset.key })));
+// Attach modifyDirection to clicks on control buttons, passing the key's dataset value as an object
+directionControls.forEach(control => control.addEventListener("click", () => modifyDirection({ key: control.dataset.key })));
 
-const initGame = () => {
-    if(gameOver) return handleGameOver();
-    let html = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
+const startGame = () => {
+    if(isGameOver) return endGame();
+    let content = `<div class="food" style="grid-area: ${targetY} / ${targetX}"></div>`;
 
-    // Checking if the snake hit the food
-    if(snakeX === foodX && snakeY === foodY) {
-        eat();
-        updateFoodPosition();
-        snakeBody.push([foodY, foodX]); // Pushing food position to snake body array
-        score++; // increment score by 1
-        highScore = score >= highScore ? score : highScore;
-        localStorage.setItem("high-score", highScore);
-        scoreElement.innerText = `Score: ${score}`;
-        highScoreElement.innerText = `High Score: ${highScore}`;
+    if(playerX === targetX && playerY === targetY) {
+        consume();
+        generateTargetPosition();
+        playerTrail.push([targetY, targetX]);
+        currentScore++;
+        topScore = currentScore >= topScore ? currentScore : topScore;
+        localStorage.setItem("high-score", topScore);
+        currentScoreDisplay.innerText = `Score: ${currentScore}`;
+        topScoreDisplay.innerText = `High Score: ${topScore}`;
     }
-    // Updating the snake's head position based on the current velocity
-    snakeX += velocityX;
-    snakeY += velocityY;
-    
-    // Shifting forward the values of the elements in the snake body by one
-    for (let i = snakeBody.length - 1; i > 0; i--) {
-        snakeBody[i] = snakeBody[i - 1];
-    }
-    snakeBody[0] = [snakeX, snakeY]; // Setting first element of snake body to current snake position
+    playerX += moveX;
+    playerY += moveY;
 
-    // Checking if the snake's head is out of wall, if so setting gameOver to true
-    if(snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {
-        return gameOver = true;
+    for (let i = playerTrail.length - 1; i > 0; i--) {
+        playerTrail[i] = playerTrail[i - 1];
+    }
+    playerTrail[0] = [playerX, playerY];
+
+    if(playerX <= 0 || playerX > 30 || playerY <= 0 || playerY > 30) {
+        return isGameOver = true;
     }
 
-    for (let i = 0; i < snakeBody.length; i++) {
-        // Adding a div for each part of the snake's body
-        html += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
-        // Checking if the snake head hit the body, if so set gameOver to true
-        if (i !== 0 && snakeBody[0][1] === snakeBody[i][1] && snakeBody[0][0] === snakeBody[i][0]) {
-            gameOver = true;
+    for (let i = 0; i < playerTrail.length; i++) {
+        content += `<div class="head" style="grid-area: ${playerTrail[i][1]} / ${playerTrail[i][0]}"></div>`;
+        if (i !== 0 && playerTrail[0][1] === playerTrail[i][1] && playerTrail[0][0] === playerTrail[i][0]) {
+            isGameOver = true;
         }
     }
-    playBoard.innerHTML = html;
+    gameArea.innerHTML = content;
 }
 
-updateFoodPosition();
-setIntervalId = setInterval(initGame, 100);
-document.addEventListener("keyup", changeDirection);
-
+generateTargetPosition();
+gameInterval = setInterval(startGame, 100);
+document.addEventListener("keyup", modifyDirection);
 
