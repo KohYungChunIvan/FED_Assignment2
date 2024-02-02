@@ -15,6 +15,66 @@ body{
     justify-content: center;
 }
 
+/* the circle images in index html */
+.categories-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 80px;
+}
+
+.category {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.category img {
+    width: 235px; /* Adjust as needed */
+    height: 235px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image circular */
+    display: block;
+    margin: 0 38px; /* Centers the image */
+    
+}
+.categories-container h2{
+    color: #000;
+    text-decoration: none;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+.categories-container h3{
+    color: #000;
+    text-decoration: none;
+    margin-top: 30px;
+    font-size: 30px;
+}
+.category-label { /* this is the text that appears when you hover the circular img */
+    display: block;
+    font-size: 28px;
+    height: 38%; /*Center the text*/
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    color: #000;
+}
+
+
+/* Hover effect */
+.category a:hover img {
+    opacity: 0.9;
+}
+
+
+.category a:hover .category-label {
+    opacity: 1;
+}
 
 .carousel-caption {
     margin-bottom: 110px;
@@ -681,10 +741,17 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
 }
+.gamebg3 {
+    background-image: url(photos/game2bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .flappy-container {
     font-family: 'Pacifico';
     margin-top: 100px;    
+   
 }
 
 canvas{
