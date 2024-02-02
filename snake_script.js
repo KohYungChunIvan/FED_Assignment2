@@ -11,6 +11,9 @@ soundGameOver.load(); // Preload the game over sound
 
 const soundFoodEatenPath = 'photos/eatsound.mp3'; // Verify path correctness
 
+let pointsThresholdReached = 0; // Added a variable to track the last threshold reached
+
+
 let isGameOver = false;
 let targetX, targetY;
 let playerX = 5, playerY = 5;
@@ -32,6 +35,7 @@ const generateTargetPosition = () => {
 const consume = () => {
   let playSound = new Audio(soundFoodEatenPath);
   playSound.play();
+  currentScore++;
   handleScoreAchieved(currentScore);
 };
 
@@ -89,7 +93,6 @@ const startGame = () => {
         consume();
         generateTargetPosition();
         playerTrail.push([targetY, targetX]);
-        currentScore++;
         topScore = currentScore >= topScore ? currentScore : topScore;
         localStorage.setItem("high-score", topScore);
         currentScoreDisplay.innerText = `Score: ${currentScore}`;
@@ -120,25 +123,31 @@ generateTargetPosition();
 gameInterval = setInterval(startGame, 100);
 document.addEventListener("keyup", modifyDirection);
 
-async function handleScoreAchieved(currentScore) {
+async function handleScoreAchieved(score) {
     let pointsToAdd = 0;
 
-    if (currentScore >= 10 && currentScore < 20) {
+    // Determine points to add based on score thresholds and ensure that points are added only once per threshold
+    if (score === 10 && pointsThresholdReached < 10) {
         pointsToAdd = 20;
-    } else if (currentScore >= 20 && currentScore < 30) {
+        pointsThresholdReached = 10;
+    } else if (score === 20 && pointsThresholdReached < 20) {
         pointsToAdd = 50;
-    } else if (currentScore >= 30 && currentScore < 40) {
+        pointsThresholdReached = 20;
+    } else if (score === 30 && pointsThresholdReached < 30) {
         pointsToAdd = 100;
-    } else if (currentScore >= 40) {
+        pointsThresholdReached = 30;
+    } else if (score === 40 && pointsThresholdReached < 40) {
         pointsToAdd = 200;
+        pointsThresholdReached = 40;
     }
 
-    try {
-        updateUserPoints(pointsToAdd)
-        // Refresh the points display on the UI using the displayUserPoints function
-        displayUserPoints();
-        
-    } catch (error) {
-        console.error('Error updating points:', error);
+    if (pointsToAdd > 0) {
+        try {
+            await updateUserPoints(pointsToAdd);
+            displayUserPoints(); // Update the UI with the new points
+            alert(`Congratulations! You have earned ${pointsToAdd} points.`);
+        } catch (error) {
+            console.error('Error updating points:', error);
+        }
     }
 }
