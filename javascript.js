@@ -359,7 +359,7 @@ async function checkout() {
 
 // Revised updateUserPoints function
 async function updateUserPoints(pointsEarned) {
-  const APIKEY = "65ab507be8b7cb2cc9ce52f9";
+  const APIKEY = "65bd08cc27d23b767e1eee0a";
   const loggedInUser = localStorage.getItem('loggedInUser');
   const loggedInEmail = localStorage.getItem('loggedInEmail');
   const loggedInPwd = localStorage.getItem('loggedInPwd');
@@ -369,7 +369,7 @@ async function updateUserPoints(pointsEarned) {
     return;
   }
 
-  const queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
+  const queryURL = `https://fedassignment2-964a.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
 
   try {
     const getUserResponse = await fetch(queryURL, {
@@ -385,7 +385,7 @@ async function updateUserPoints(pointsEarned) {
     if (users.length > 0) {
       const user = users[0];
       const updatedPoints = (user.points || 0) + pointsEarned;
-      const updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
+      const updateURL = `https://fedassignment2-964a.restdb.io/rest/mori-user/${user._id}`;
       let datajson = {
         "user-name": loggedInUser,
         "user-email": loggedInEmail,
@@ -439,7 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // API
 document.addEventListener("DOMContentLoaded", function () {
-  const APIKEY = "65ab507be8b7cb2cc9ce52f9";
+  const APIKEY = "65bd08cc27d23b767e1eee0a";
   adjustCartCountPosition();
   // Check if the sign-up form exists on the current page
   const signUpButton = document.getElementById("contact-submit");
@@ -468,7 +468,7 @@ document.addEventListener("DOMContentLoaded", function () {
               body: JSON.stringify(jsondata)
           };
 
-          fetch("https://fedassignment2-7f7e.restdb.io/rest/mori-user", settings)
+          fetch("https://fedassignment2-964a.restdb.io/rest/mori-user", settings)
               .then(response => response.json())
               .then(data => {
                   console.log(data);
@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      let queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-email": "${loginEmail}", "user-pwd": "${loginPassword}"}`;
+      let queryURL = `https://fedassignment2-964a.restdb.io/rest/mori-user?q={"user-email": "${loginEmail}", "user-pwd": "${loginPassword}"}`;
 
       fetch(queryURL, {
         method: "GET",
@@ -626,7 +626,7 @@ async function redeem(points) {
 
 // Revised updateUserPoints function
 async function deductUserPoints(pointsDeducted) {
-  const APIKEY = "65ab507be8b7cb2cc9ce52f9";
+  const APIKEY = "65bd08cc27d23b767e1eee0a";
   const loggedInUser = localStorage.getItem('loggedInUser');
   const loggedInEmail = localStorage.getItem('loggedInEmail');
   const loggedInPwd = localStorage.getItem('loggedInPwd');
@@ -635,7 +635,7 @@ async function deductUserPoints(pointsDeducted) {
     console.error('User is not logged in.');
     return;
   }
-  const queryURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
+  const queryURL = `https://fedassignment2-964a.restdb.io/rest/mori-user?q={"user-name": "${loggedInUser}"}`;
 
   try {
     const getUserResponse = await fetch(queryURL, {
@@ -655,7 +655,7 @@ async function deductUserPoints(pointsDeducted) {
       if(updatedPoints >= 0){
         
       
-      const updateURL = `https://fedassignment2-7f7e.restdb.io/rest/mori-user/${user._id}`;
+      const updateURL = `https://fedassignment2-964a.restdb.io/rest/mori-user/${user._id}`;
       let deductdatajson = {
         "user-name": loggedInUser,
         "user-email": loggedInEmail,

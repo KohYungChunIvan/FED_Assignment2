@@ -674,11 +674,52 @@ footer {
     overflow: hidden;
 }
 
+
+.game2 {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    min-height: 100vh; /* Minimum height of 100% of the viewport */
+    padding: 50px; /* Add some padding around */
+    box-sizing: border-box; /* Include padding in the width and height calculations */
+    
+}
+
+/* If you have specific rows for the game and the instructions */
+.game2 .row {
+    width: 100%;
+    max-width: 1200px; /* Adjust the max width as per your design */
+    margin: auto; /* This will help in centering if the content is smaller than the max-width */
+}
+
+/* Flex settings for the columns if they are not already set */
+.game2 .col-md-6 {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically in the column */
+    align-items: start; /* Center children horizontally in the column */
+    
+}
+
+
+
+/* Make sure the snake game container takes the full width in its column */
+.snake-container {
+    width: 100%;
+}
+
+/* Center the game details text */
+.game-details {
+    justify-content: center;
+}
+
 .snake-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .snake {
@@ -736,11 +777,16 @@ footer {
 
 
 .gamebg {
-    background-image: url(photos/game2bg.jpg);
+    background-image: url('photos/game2bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /* Removed min-height: 100vh; */
+    /* Added background-attachment: scroll; */
+    background-attachment: scroll; 
+    
 }
+
 .gamebg3 {
     background-image: url(photos/game2bg.jpg);
     background-size: cover;
@@ -750,7 +796,8 @@ footer {
 
 .flappy-container {
     font-family: 'Pacifico';
-    margin-top: 100px;    
+    margin-top: 100px;  
+      
    
 }
 
@@ -837,6 +884,17 @@ canvas{
         right: 30.1vw; /* Adjusted position when user is logged in */
         
     }
+    .gamebg {
+        min-height: 100vh; /* Minimum height of 100% of the viewport */
+        background-attachment: fixed; /* Optional: Fix the background */
+        overflow-y: scroll;
+    }
+    .snake-container {
+        max-width: 90vw; /* Use 90% of the viewport width */
+        height: 90vw; /* Use the same value for height to maintain aspect ratio */
+    }
+
+   
 }
 @media (min-width: 600px) {
     .image-gallery {

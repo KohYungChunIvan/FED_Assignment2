@@ -32,9 +32,11 @@ const generateTargetPosition = () => {
 const consume = () => {
   let playSound = new Audio(soundFoodEatenPath);
   playSound.play();
+  handleScoreAchieved(currentScore);
 };
 
 const endGame = () => {
+    enableScrolling();
     soundGameOver.currentTime = 0; // Start from beginning
     soundGameOver.play();
     clearInterval(gameInterval);
@@ -58,11 +60,28 @@ const modifyDirection = e => {
         moveY = 0;
     }
 }
+// Function to disable scrolling
+function disableScrolling() {
+    window.addEventListener('keydown', preventArrowScrolling, false);
+}
+
+// Function to enable scrolling
+function enableScrolling() {
+    window.removeEventListener('keydown', preventArrowScrolling, false);
+}
+
+// Function to prevent default arrow key actions
+function preventArrowScrolling(e) {
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+    e.preventDefault();
+    }
+}
 
 // Attach modifyDirection to clicks on control buttons, passing the key's dataset value as an object
 directionControls.forEach(control => control.addEventListener("click", () => modifyDirection({ key: control.dataset.key })));
 
 const startGame = () => {
+    disableScrolling();
     if(isGameOver) return endGame();
     let content = `<div class="food" style="grid-area: ${targetY} / ${targetX}"></div>`;
 
@@ -101,3 +120,25 @@ generateTargetPosition();
 gameInterval = setInterval(startGame, 100);
 document.addEventListener("keyup", modifyDirection);
 
+async function handleScoreAchieved(currentScore) {
+    let pointsToAdd = 0;
+
+    if (currentScore >= 10 && currentScore < 20) {
+        pointsToAdd = 20;
+    } else if (currentScore >= 20 && currentScore < 30) {
+        pointsToAdd = 50;
+    } else if (currentScore >= 30 && currentScore < 40) {
+        pointsToAdd = 100;
+    } else if (currentScore >= 40) {
+        pointsToAdd = 200;
+    }
+
+    try {
+        updateUserPoints(pointsToAdd)
+        // Refresh the points display on the UI using the displayUserPoints function
+        displayUserPoints();
+        
+    } catch (error) {
+        console.error('Error updating points:', error);
+    }
+}
