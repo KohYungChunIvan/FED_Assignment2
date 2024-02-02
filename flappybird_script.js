@@ -15,12 +15,38 @@ window.onload = function() {
     const sprite = new Image();
     sprite.src = "photos/flappy.png";
 
+    // Improved Sound Handling
+    function createSound(src) {
+        const sound = new Audio(src);
+        sound.preload = 'auto'; // Ensure the sound is preloaded
+        sound.load(); // Explicitly call load to start loading the sound
+        return sound;
+    }
+
+    // Function to manage sound playing
+    function playSound(sound) {
+        // Instead of cloning the sound, directly manipulate and play the original sound object
+        if (sound.paused) {
+            sound.play().catch(e => console.error("Error playing sound:", e));
+        } else {
+            sound.currentTime = 0; // Reset sound to start if it was already playing
+            sound.play().catch(e => console.error("Error playing sound:", e));
+        }
+    }
+
     // Load Sounds
-    const SCORE_S = new Audio("photos/flappy sound/sfx_point.wav");
-    const FLAP = new Audio("photos/flappy sound/sfx_flap.wav");
-    const HIT = new Audio("photos/flappy sound/sfx_hit.wav");
-    const SWOOSHING = new Audio("photos/flappy sound/sfx_swooshing.wav");
-    const DIE = new Audio("photos/flappy sound/sfx_die.wav");
+    const SCORE_S = createSound("photos/flappy sound/sfx_point.wav");
+    const FLAP = createSound("photos/flappy sound/sfx_flap.wav");
+    const HIT = createSound("photos/flappy sound/sfx_hit.wav");
+    const SWOOSHING = createSound("photos/flappy sound/sfx_swooshing.wav");
+    const DIE = createSound("photos/flappy sound/sfx_die.wav");
+
+    // Example usage in the game flow
+    cvs.addEventListener("click", function(evt) {
+        // Handle game state changes and play sounds as necessary
+        // Use playSound function to play a sound effect, e.g.,
+        playSound(SWOOSHING); // Whenever you need to play the swooshing sound
+    });
 
     // Game State
     const state = {
