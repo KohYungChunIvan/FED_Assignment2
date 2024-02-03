@@ -15,67 +15,116 @@ body{
     justify-content: center;
 }
 
-/* the circle images in index html */
 .categories-container {
     text-align: center;
     font-family: Arial, sans-serif;
     margin-top: 80px;
 }
 
+.categories-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-around;
+    width: 69%;
+}
+
+/* Styles for the category blocks */
 .category {
     display: inline-block;
-    margin: 10px;
+    margin: 20px;
     position: relative;
     text-align: center;
+    vertical-align: top;
+}
+
+/* Adjusted styles for the anchor and images within category blocks */
+.category a {
+    position: relative;
+    display: block;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto; /* Centers the link */
+    overflow: visible; /* This needs to be visible to show the shadow outside */
+
 }
 
 .category img {
-    width: 235px; /* Adjust as needed */
-    height: 235px; /* Adjust as needed */
-    border-radius: 50%; /* Makes the image circular */
-    display: block;
-    margin: 0 38px; /* Centers the image */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 6px solid #f0f0f0; /* Adds a solid border around the image, change color as needed */
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3); /* Creates a green glow around the image */   
+}
+
+
+.category:hover img {
+    box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.3); /* Increase the glow effect on hover */
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Initially hide the hover image */
+.category .image-hover {
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Show the hover image and hide the normal image on hover */
+.category:hover .image-normal {
+    opacity: 0;
+}
+
+.category:hover .image-hover {
+    opacity: 1;
+    z-index: 2;
+}
+
+
+/* Styles for the category label */
+.category h4 {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -30px;
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    z-index: 3; /* Ensure the label is above all images */
     
 }
-.categories-container h2{
-    color: #000;
-    text-decoration: none;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    font-size: 40px;
+
+.category-label {
+    display: none; /* Hide labels initially */
 }
-.categories-container h3{
-    color: #000;
-    text-decoration: none;
-    margin-top: 30px;
-    font-size: 30px;
+
+.category:hover img {
+    opacity: 0.9;
 }
-.category-label { /* this is the text that appears when you hover the circular img */
+
+.category:hover .category-label {
     display: block;
     font-size: 28px;
-    height: 38%; /*Center the text*/
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    white-space: nowrap;
     color: #000;
 }
 
-
-/* Hover effect */
-.category a:hover img {
-    opacity: 0.9;
+.bottom-category {
+    margin-top: -50px; /* Adjust to bring the bottom circle closer to the top ones */
 }
-
-
-.category a:hover .category-label {
-    opacity: 1;
-}
-
 .carousel-caption {
     margin-bottom: 110px;
 }
@@ -893,7 +942,12 @@ canvas{
         max-width: 90vw; /* Use 90% of the viewport width */
         height: 90vw; /* Use the same value for height to maintain aspect ratio */
     }
-
+    .top-row {
+        flex-direction: column;
+    }
+    .top-row .category {
+        margin-bottom: 20px;
+    }
    
 }
 @media (min-width: 600px) {

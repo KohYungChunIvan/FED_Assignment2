@@ -1,5 +1,18 @@
 // DONE BY: Koh Yung Chun Ivan, S10262491
 
+document.addEventListener('DOMContentLoaded', function() {
+  var categoryLinks = document.querySelectorAll('.category a');
+  categoryLinks.forEach(function(link) {
+      var hoverImage = link.getAttribute('data-hover-image');
+      link.onmouseover = function() {
+          link.style.setProperty('--hover-image', 'url(' + hoverImage + ')');
+      };
+      link.onmouseout = function() {
+          link.style.setProperty('--hover-image', 'none');
+      };
+  });
+});
+
 var cards = document.querySelectorAll('.product-box');
 
 
@@ -739,3 +752,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
