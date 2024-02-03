@@ -345,14 +345,56 @@ window.onload = function() {
         fg.update();
         pipes.update();
     }
+    function calculatePoints(score) {
+        if (score <= 5) {
+            return score * 10;
+        } else {
+            return (score - 5) * 50 + 50;
+        }
+    }
+    // Define a flag to indicate whether the game over logic has already been executed
+    let hasHandledGameOver = false;
 
     // Loop Function
     function loop() {
         update();
         draw();
         frames++;
+        if (state.current === state.over) {
+        if (!hasHandledGameOver) {
+            handleGameOver();
+        }
+        } else {
+            // Reset the flag if the game is not over
+            hasHandledGameOver = false;
+        }
+
         requestAnimationFrame(loop);
     }
+    // Game Over Handler
+    function handleGameOver() {
+        // Set the flag to true to avoid duplicate handling
+        hasHandledGameOver = true;
+
+        // Calculate the points earned based on the final score
+        const pointsEarned = calculatePoints(score.value);
+
+        // Asynchronously update user points and handle UI response
+        updateUserPoints(pointsEarned)
+            .then(() => {
+                alert(`Congratulations! You have earned ${pointsEarned} points.`);
+                window.location.href = 'rewards.html'; // Redirect to the rewards page
+            })
+            .catch((error) => {
+                console.error('Error updating points:', error);
+            });
+    }
+
 
     sprite.onload = loop;
+
+
+    
+
+    
 };

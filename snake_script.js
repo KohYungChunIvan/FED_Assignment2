@@ -46,6 +46,7 @@ const endGame = () => {
     clearInterval(gameInterval);
     alert("Game Over! Press OK to replay...");
     location.reload();
+    window.location.href = 'rewards.html';
 }
 
 const modifyDirection = e => {
@@ -142,12 +143,37 @@ async function handleScoreAchieved(score) {
     }
 
     if (pointsToAdd > 0) {
+        showBanner(`Congratulations! You have earned ${pointsToAdd} points.`);
         try {
             await updateUserPoints(pointsToAdd);
             displayUserPoints(); // Update the UI with the new points
-            alert(`Congratulations! You have earned ${pointsToAdd} points.`);
         } catch (error) {
             console.error('Error updating points:', error);
         }
     }
+}
+
+function showBanner(message) {
+    const bannerPlaceholder = document.getElementById('banner-placeholder');
+    bannerPlaceholder.innerHTML = `<div class="custom-banner" role="alert">${message}</div>`;
+    bannerPlaceholder.style.display = 'block';
+
+    // Set styles for the custom banner
+    const customBanner = bannerPlaceholder.querySelector('.custom-banner');
+    customBanner.style.backgroundColor = '#762929'; // Set the background color
+    customBanner.style.color = 'white'; // Set the text color to white
+    customBanner.style.width = '100%'; // Ensure it covers the full width
+    customBanner.style.height = '64px'; // Set the height to be tall enough to cover the navbar
+    customBanner.style.lineHeight = '48px'; // Center the text vertically
+    customBanner.style.padding = '10px 0'; // Add some vertical padding
+    customBanner.style.textAlign = 'center'; // Center the text
+    customBanner.style.position = 'fixed'; // Fix position to the top
+    customBanner.style.top = '0'; // Position at the top of the page
+    customBanner.style.left = '0'; // Align to the left
+    customBanner.style.zIndex = '1030'; // Ensure it is on top of other elements
+
+    // Automatically hide the banner after 3 seconds
+    setTimeout(() => {
+        bannerPlaceholder.style.display = 'none';
+    }, 3000);
 }
