@@ -1,6 +1,16 @@
 /*DONE BY : Koh Yung Chun Ivan, S10262491*/
 
 @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.element {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
 
 body{
     background:  rgba(241, 218, 230, 0.3);
@@ -13,6 +23,7 @@ body{
     padding: 0;
     align-items: center;
     justify-content: center;
+    
 }
 
 .categories-container {
@@ -30,8 +41,12 @@ body{
 .top-row {
     display: flex;
     justify-content: space-around;
-    width: 69%;
+    width: 90%;
+    position: relative; /* Set the position to relative to position the pseudo-element */
+    padding-bottom: 10px; /* Add some padding to give space for the line */
 }
+
+
 
 /* Styles for the category blocks */
 .category {
@@ -46,30 +61,29 @@ body{
 .category a {
     position: relative;
     display: block;
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 370px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto; /* Centers the link */
     overflow: visible; /* This needs to be visible to show the shadow outside */
-
 }
 
 .category img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
-    border: 6px solid #f0f0f0; /* Adds a solid border around the image, change color as needed */
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3); /* Creates a green glow around the image */   
+    border: 6px solid #e4dfdf; /* Adds a solid border around the image, change color as needed */
+    object-fit: cover ;
 }
 
 
 .category:hover img {
-    box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.3); /* Increase the glow effect on hover */
+    box-shadow: 0 0 30px 15px rgba(61, 85, 61, 0.3); /* Increase the glow effect on hover */
     transform: scale(1.1);
     opacity: 0.9;
 }
@@ -96,12 +110,11 @@ body{
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: -30px;
+    bottom: -50px;
     text-align: center;
     color: #000;
     font-size: 20px;
     z-index: 3; /* Ensure the label is above all images */
-    
 }
 
 .category-label {
@@ -123,7 +136,7 @@ body{
 }
 
 .bottom-category {
-    margin-top: -50px; /* Adjust to bring the bottom circle closer to the top ones */
+    margin-bottom: 50px; 
 }
 .carousel-caption {
     margin-bottom: 110px;
@@ -285,7 +298,7 @@ body{
 .product-inner-box img{
     box-shadow: 0 33px 61px -29px rgb(0 0 0 / 26%);
     height: 350px;
-    width: 100%;
+    width: 440px;
     object-fit: cover;
 }
 
