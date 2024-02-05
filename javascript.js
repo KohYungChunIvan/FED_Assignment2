@@ -602,6 +602,20 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.removeItem('loggedInEmail');
     localStorage.removeItem('loggedInPwd');
     localStorage.removeItem('userPoints'); // Make sure to remove the points
+    localStorage.removeItem('cartData'); // Clear the cart data
+
+    // Clear the cart UI
+    const cartPopupContent = document.querySelector('.cart-popup-content');
+    if (cartPopupContent) {
+      cartPopupContent.innerHTML = ''; // This will remove all cart item elements
+    }
+    
+
+    // Update UI elements that depend on the cart items
+    updateCartTotal();
+    updateCartItemCount();
+    checkEmptyCart();
+    updateCheckoutButtonVisibility();
     
     // Update UI to reflect the user is logged out
     updateUserDisplay(null); // Reset the user display
@@ -625,6 +639,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function redeem(points) {
+  const loggedInUser = localStorage.getItem('loggedInUser');
+
+  // Check if user is logged in
+  if (!loggedInUser) {
+    alert('Please log in to redeem items.');
+    window.location.href = 'login.html'; // Redirect to login page or pop up the login modal
+    return; // Exit if the user is not logged in
+  }
+
   alert("Proceeding to redeem!");
   const pointsDeducted = points;
   console.log(pointsDeducted);
@@ -720,6 +743,15 @@ function redeemAndAddToCart(points, itemName, itemId, imagePath){
 
 // Attempt to deduct points and play the game
 async function playGame(gameUrl, entryFee) {
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  
+  // Check if user is logged in
+  if (!loggedInUser) {
+    alert('Please log in to play the game.');
+    window.location.href = 'login.html';
+    return; // Exit if the user is not logged in
+  }
+
   const currentPoints = parseInt(localStorage.getItem('userPoints') || '0');
 
   if (currentPoints < entryFee) {
