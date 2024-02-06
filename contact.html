@@ -84,53 +84,55 @@
 
         <div class="row">
             <div class="col-md-7 shadow rounded p-5 px-2">
-                <div class="row px-3">
-                    <div class="col mb-3">
-                        <label class="form-label">First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name">
+                <form id="contactForm">
+                    <div class="row px-3">
+                        <div class="col mb-3">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col mb-3">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
                     </div>
-                    <div class="col mb-3">
-                        <label class="form-label">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name">
+                    <div class="mb-3 px-5">
+                        <label class="form-label">Email:</label>
+                        <input type="text" class="form-control" placeholder="name@email.com">
                     </div>
-                </div>
-                <div class="mb-3 px-5">
-                    <label class="form-label">Email:</label>
-                    <input type="text" class="form-control" placeholder="name@email.com">
-                </div>
-                <div class="mb-3 px-5">
-                    <label class="form-label">Subject:</label>
-                    <input type="text" class="form-control" placeholder="Subject">
-                </div>
-                <div class="mb-3 px-5">
-                    <label class="form-label">Message:</label>
-                    <textarea name="" class="form-control" placeholder="Write Your message Here" rows="4"></textarea>
-                </div>
+                    <div class="mb-3 px-5">
+                        <label class="form-label">Subject:</label>
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="mb-3 px-5">
+                        <label class="form-label">Message:</label>
+                        <textarea name="" class="form-control" placeholder="Write Your message Here" rows="4"></textarea>
+                    </div>
 
-                <div class="mb-3 px-5">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Submit
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thank You for supporting us</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    We will get back to you as soon as possible
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <div class="mb-3 px-5">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Submit
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thank You for supporting us</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        We will get back to you as soon as possible
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

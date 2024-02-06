@@ -421,38 +421,36 @@ body {
 
 /* Style for the custom search container */
 .custom-search {
-    position: relative; /* Position the container relative to its normal position */
-    width: 300px; /* Set a fixed width for the container */
-    margin-left: auto; /* Center-align the container horizontally */
-    margin-right: auto; /* Center-align the container horizontally */
-    display: block; /* Display the container as a block element */
+    position: relative; /* Use relative positioning to position the search button inside the container */
+    width: 300px; /* Set a fixed width for the search container */
+    margin-left: auto; /* Center the search container horizontally */
+    margin-right: auto; /* Center the search container horizontally */
+    display: block; /* Ensure the container is displayed as a block-level element */
 }
 
-/* Style for the custom search input */
 .custom-search-input {
-    width: 100%; /* Set the input width to 100% of its container */
-    border: 1px solid #ccc; /* Apply a border style to the input */
-    border-radius: 100px; /* Apply a rounded border radius */
-    padding: 10px 100px 10px 20px; /* Add padding to the input */
-    line-height: 1; /* Set the line height for the input */
-    box-sizing: border-box; /* Include padding and border in the input's total width */
-    outline: none; /* Remove the outline on focus */
+    width: 100%; /* Make the input field take up the entire width of its parent container */
+    border: 1px solid #ccc; /* Set the border color and thickness */
+    border-radius: 100px; /* Round the corners of the input field for a pill shape */
+    padding: 10px 100px 10px 20px; /* Set padding to make text inside the input field not touch the edges and leave space for the button */
+    line-height: 1; /* Set the line height to ensure text is vertically centered */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    outline: none; /* Remove the default focus outline to customize styling */
 }
 
-/* Style for the custom search button */
-.custom-search-button {
-    position: absolute; /* Position the button absolutely */
-    right: 3px; /* Set the right position of the button */
-    top: 3px; /* Set the top position of the button */
-    bottom: 3px; /* Set the bottom position of the button */
-    border: 0; /* Remove the border from the button */
+.custom-search-botton {
+    position: absolute; /* Position the button absolutely within its relatively positioned parent */
+    right: 3px; /* Position the button close to the right edge of its parent */
+    top: 3px; /* Position the button close to the top edge of its parent */
+    bottom: 3px; /* Ensure the button is vertically centered within its parent */
+    border: 0; /* Remove any default border */
     background: #d1095e; /* Set the background color of the button */
-    color: #fff; /* Set the text color of the button */
-    outline: none; /* Remove the outline on focus */
-    margin: 0; /* Remove margin */
-    padding: 0 10px; /* Add padding to the button */
-    border-radius: 100px; /* Apply a rounded border radius */
-    z-index: 2; /* Set a higher z-index to ensure the button is on top of other elements */
+    color: #fff; /* Set the text color to white for contrast */
+    outline: none; /* Remove the default focus outline */
+    margin: 0; /* Remove any default margin */
+    padding: 0 10px; /* Add horizontal padding but no vertical padding */
+    border-radius: 100px; /* Round the corners of the button for a pill shape */
+    z-index: 2; /* Ensure the button is layered above other elements */
 }
 
 /* Style for all video elements */
