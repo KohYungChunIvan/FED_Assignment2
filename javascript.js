@@ -1,5 +1,15 @@
 // DONE BY: Koh Yung Chun Ivan, S10262491
 
+// Wait for the page to fully load
+window.addEventListener('load', function() {
+  // Hide the loading screen
+  document.getElementById("loading-screen").style.display = 'none';
+  // Show the content
+  document.getElementById("content").style.display = 'block';
+  // Pause the loading animation
+  document.getElementById("loading-screen").pause();
+});
+
 // Wait for the DOM content to be fully loaded before executing the code
 document.addEventListener('DOMContentLoaded', function() {
   // Get all anchor elements inside elements with the class 'category'

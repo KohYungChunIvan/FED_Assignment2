@@ -1,5 +1,15 @@
 // (Spin the Wheel)
 
+// Wait for the page to fully load
+window.addEventListener('load', function() {
+  // Hide the loading screen
+  document.getElementById("loading-screen").style.display = 'none';
+  // Show the content
+  document.getElementById("content").style.display = 'block';
+  // Pause the loading animation
+  document.getElementById("loading-screen").pause();
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   let spinWheel = document.querySelector('.wheel'); // Get the wheel element
   let triggerButton = document.querySelector('.spinBtn'); // Get the spin button element
