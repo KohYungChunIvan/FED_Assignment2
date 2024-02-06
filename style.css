@@ -334,6 +334,14 @@ body {
     opacity: 1; /* Make the icons fully visible */
 }
 
+/* Style for the class .rewards-header */
+.rewards-header {
+    /* Add a bottom border with thickness of 2.25px and color black */
+    border-bottom: 2.25px solid black;
+    /* Add padding at the bottom to create space between the text and the underline */
+    padding-bottom: 5px;
+}
+
 /* Style for cart buttons with class .cart-btn */
 .cart-btn {
     position: absolute; /* Position the button absolutely */
