@@ -44,14 +44,6 @@ var cards = document.querySelectorAll('.product-box');
 });
 
 
-document.getElementById("exampleModal").addEventListener('hidden.bs.modal', function () {
-  document.getElementById("contactForm").reset();
-});
-
-document.getElementById("exampleModalLabel").addEventListener("click", function() {
-  document.getElementById("contactForm").submit(); // Submit the form
-});
-
 // Execute the following code when the DOM content is fully loaded
 document.addEventListener("DOMContentLoaded", function() {
   // Select the first 'video' element in the document
@@ -966,4 +958,14 @@ document.addEventListener('DOMContentLoaded', function() {
       playGame(gameUrl, entryFee);
     });
   });
+});
+
+
+
+document.getElementById("exampleModal").addEventListener('hidden.bs.modal', function () {
+  document.getElementById("contactForm").reset();
+});
+
+document.getElementById("exampleModalLabel").addEventListener("click", function() {
+  document.getElementById("contactForm").submit(); // Submit the form
 });
