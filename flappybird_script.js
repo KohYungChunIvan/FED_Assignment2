@@ -1,7 +1,6 @@
 // Third Game Flappy Bird
 
 
-
 // Game Initialization
 window.onload = function() {
     // Get the canvas and context
