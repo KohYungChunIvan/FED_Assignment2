@@ -11,9 +11,11 @@
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body class="vh-100">
+    <!-- Loading Screen -->
     <div id="loading-screen">
         <dotlottie-player src="https://lottie.host/8d1b3a22-e89b-46b4-88fc-0b5d779dc764/ZiUAqsmDjV.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     </div>
+    <!-- Contents -->
     <div id="content">
     <!-- Navbar-->
      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d6d3d3;">
@@ -92,6 +94,7 @@
             <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+        <!-- Slider 1 -->
         <div class="carousel-inner">
           <div class="carousel-item active c-item">
             <img src="photos/slider1.jpg" class="d-block w-100 c-img" alt="...">
@@ -101,6 +104,7 @@
                 <a href="backpack.html" class="btn btn-primary px-4 py-2 fs-5 mt-5">Buy Now</a>
             </div>
           </div>
+          <!-- Slider 2 -->
           <div class="carousel-item c-item">
             <img src="photos/slider2.jpg" class="d-block w-100 c-img" alt="...">
             <div class="carousel-caption mt-4 d-none d-md-block">
@@ -109,6 +113,7 @@
                 <a href="backpack.html" class="btn btn-primary px-4 py-2 fs-5 mt-5">Buy Now</a>
             </div>
           </div>
+          <!-- Slider 3 -->
           <div class="carousel-item c-item">
             <img src="photos/slider3.jpg" class="d-block w-100 c-img" alt="...">
             <div class="carousel-caption mt-4 d-none d-md-block">
@@ -128,11 +133,14 @@
         </button>
       </div>
 
+      <!-- Header -->
       <div class="card-container px-5 py-4">
         <div class="row mb-2">
             <h2>Featured Products</h2>
         </div>
+        <!-- Row -->
         <div class="row">
+            <!-- Item 1 -->
             <div class="col-md-3">
                 <div class="product-box">
                     <div class="product-inner-box position-relative mb-2">
@@ -156,6 +164,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Item 2 -->
             <div class="col-md-3">
                 <div class="product-box">
                     <div class="product-inner-box position-relative mb-2">
@@ -179,6 +188,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Item 3 -->
             <div class="col-md-3">
                 <div class="product-box">
                     <div class="product-inner-box position-relative mb-2">
@@ -202,6 +212,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Item 4 -->
             <div class="col-md-3">
                 <div class="product-box">
                     <div class="product-inner-box position-relative mb-2">
@@ -227,27 +238,31 @@
             </div>
         </div>
        </div>
+       <!-- Video -->
       <video src="photos/ads_video.mp4" class="object-fit-cover" autoplay muted></video>
 
       
       
-
+      <!-- Aesthetic Array -->
       <div class="categories-container mb-2">
         <h3 class="mb-4">Aesthetic Array</h3>
         <div class="categories-flex-container">
             <div class="top-row">
+                <!-- Backpack -->
                 <div class="category">
                     <a href="backpack.html">
                         <img src="photos/displayimage3.jpeg" alt="BackPack" class="image-normal">
                         <img src="photos/displayimage4.jpeg" alt="BackPack" class="image-hover">
                     </a>
                 </div>
+                <!-- Wallet -->
                 <div class="category">
                     <a href="wallet.html">
                         <img src="photos/displayimage5.jpeg" alt="Wallet" class="image-normal">
                         <img src="photos/displayimage6.jpeg" alt="Wallet" class="image-hover">
                     </a>
                 </div>
+                <!-- Handbag -->
                 <div class="category">
                     <a href="handbag.html">
                         <img src="photos/displayimage1.jpg" alt="HandBag" class="image-normal">
@@ -256,12 +271,14 @@
                 </div>
             </div>
             <div class="bottom-row bottom-category">
+                <!-- Handbag -->
                 <div class="category">
                     <a href="handbag.html">
                         <img src="photos/displayimage7.jpg" alt="BackPack" class="image-normal">
                         <img src="photos/displayimage8.jpg" alt="BackPack" class="image-hover">
                     </a>
                 </div>
+                <!-- Handbag -->
                 <div class="category">
                     <a href="handbag.html">
                         <img src="photos/displayimage9.jpg" alt="Wallet" class="image-normal">
@@ -274,7 +291,7 @@
         </div>
       </div>
       
-
+      <!-- Context -->
       <div class="words text-center text-white py-5" style="background-color: #819c8e; ">
         <h5>WHY MORI?🍀</h5>
         <h2>Aesthetics + Function</h2>
@@ -284,6 +301,7 @@
         <h6>That's why we're here — Mori are just as functional as they are cute. ✌️</h6>
       </div>
 
+      <!-- Newsletter -->
       <div class="offer text-center text-white py-5" style="background-color: #ae9a88; font-style: italic;">
         <h2>Get 10% off your first order</h2>
         <h6>Sign up for our newsletter to get first dibs on new collections and exclusive offers.</h6>
@@ -294,6 +312,7 @@
         </div>
       </div>
 
+      <!-- Cart -->
       <div class="cart-popup" style="right: -500px;">
         <div class="shopping-cart-title">Shopping Cart</div>
         <div class="empty-cart-title">Your Cart is Empty</div>
@@ -304,7 +323,8 @@
         </div>
         <div class="close-cart" onclick="toggleCart()">X</div>
       </div>
-
+      
+      <!-- Footer -->
       <footer>
         <div class="about-container p-4">
             <h3>ABOUT US</h3>

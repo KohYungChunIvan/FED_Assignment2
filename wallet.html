@@ -11,9 +11,11 @@
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body class="vh-100">
+    <!-- Loading Screen -->
     <div id="loading-screen">
         <dotlottie-player src="https://lottie.host/8d1b3a22-e89b-46b4-88fc-0b5d779dc764/ZiUAqsmDjV.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     </div>
+    <!-- Contents -->
     <div id="content">
     <!-- Navbar-->
      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d6d3d3;">
@@ -58,7 +60,6 @@
                 
               </ul>
               <!--Login / Sign up-->
-              <!--Login / Sign up-->
               <div class="d-flex flex-column flex-lg-row align-items-center gap-3 px-3">
                 <div class="dropdown">
                     <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -82,11 +83,12 @@
           </div>
         </div>
      </nav>
-    
+      <!-- Header -->
       <div class="card-container px-5 py-4">
         <div class="row mb-2">
             <h2>Wallet</h2>
         </div>
+        <!-- Row 1 -->
         <div class="row">
             <!--Accessories 1-->
             <div class="col-md-3">
@@ -163,6 +165,7 @@
                 </div>
             </div>
         </div>
+        <!-- Row 2 -->
         <div class="row">
 
             <!--Accessories 4-->
@@ -239,6 +242,7 @@
                 </div>
             </div>
         </div>
+        <!-- Row 3 -->
         <div class="row py-5">
             <!--Accessories 7-->
             <div class="col-md-3">
@@ -317,7 +321,7 @@
         </div>
         
       </div>
-      
+      <!-- Cart -->
       <div class="cart-popup" style="right: -500px;">
         <div class="shopping-cart-title">Shopping Cart</div>
         <div class="empty-cart-title">Your Cart is Empty</div>
@@ -329,6 +333,7 @@
         <div class="close-cart" onclick="toggleCart()">X</div>
       </div>
 
+      <!-- Newsletter -->
       <div class="offer text-center text-white py-5" style="background-color: #ae9a88; font-style: italic;">
         <h2>Get 10% off your first order</h2>
         <h6>Sign up for our newsletter to get first dibs on new collections and exclusive offers.</h6>
@@ -339,6 +344,7 @@
         </div>
       </div>
 
+      <!-- Footer -->
       <footer>
         <div class="about-container p-4">
             <h3>ABOUT US</h3>

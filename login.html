@@ -11,9 +11,11 @@
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body class="vh-100">
+    <!-- Loading Screen -->
     <div id="loading-screen">
         <dotlottie-player src="https://lottie.host/8d1b3a22-e89b-46b4-88fc-0b5d779dc764/ZiUAqsmDjV.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     </div>
+    <!-- Contents -->
     <div id="content">
      <!-- Navbar-->
      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d6d3d3;">
@@ -101,6 +103,7 @@
                         <h2>Welcome Back!</h2>
                         <p>Login to continue</p>
                     </div>
+                    <!-- Login Area -->
                     <form id="login-contact-form">
                         <div class="input-group mb-3">
                             <input type="email" id="user-email" class="form-control form-control-lg bg-light fs-6" placeholder="Email address">
@@ -108,7 +111,7 @@
                         <div class="input-group mb-3">
                             <input type="password" id="user-pwd" class="form-control form-control-lg bg-light fs-6" placeholder="Password">
                         </div>
-
+                        <!-- Remember Me & Forgot Password -->
                         <div class="input-group mb-5 d-flex justify-content-between">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="formCheck">
@@ -118,10 +121,12 @@
                                 <small><a href="#forgot">Forgot Password?</a></small>
                             </div>
                         </div>
+                        <!-- Login Button -->
                         <div class="input-group mb-3">
                             <button class="btn btn-lg btn-primary w-100 fs-6" id="login-submit">Login</button>
                         </div>
                         
+                        <!-- Sign Up Link If No Account -->
                         <div class="row">
                             <small>Don't have account? <a href="signup.html">Sign Up</a></small>
                         </div>
@@ -130,6 +135,7 @@
             </div> 
         </div>
     </div>
+    <!-- Cart -->
     <div class="cart-popup" style="right: -500px;">
         <div class="shopping-cart-title">Shopping Cart</div>
         <div class="empty-cart-title">Your Cart is Empty</div>
