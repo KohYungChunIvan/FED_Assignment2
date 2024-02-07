@@ -1,15 +1,17 @@
 // Third Game Flappy Bird
 
+// Hide loading screen after 3 seconds
+setTimeout(function () {
+    document.getElementById('loading-screen').style.display = 'none';
+}, 1500);
+  
 // Wait for the page to fully load
 window.addEventListener('load', function() {
-    // Hide the loading screen
-    document.getElementById("loading-screen").style.display = 'none';
     // Show the content
     document.getElementById("content").style.display = 'block';
     // Pause the loading animation
     document.getElementById("loading-screen").pause();
-  });
-  
+});
 
 // Game Initialization
 window.onload = function() {
