@@ -334,19 +334,33 @@ body {
     opacity: 1; /* Make the icons fully visible */
 }
 
+/* Hides the element with the id 'content' */
 #content{
     display: none;
 }
+
+
+/* Styles the loading screen element */
 #loading-screen {
+    /* Sets the position of the loading screen to fixed, so it remains in the same position even when the user scrolls */
     position: fixed;
+    /* Specifies the distance of the loading screen from the top of the viewport */
     top: 0;
+    /* Specifies the distance of the loading screen from the left of the viewport */
     left: 0;
+    /* Sets the width of the loading screen to cover the entire viewport */
     width: 100%;
+    /* Sets the height of the loading screen to cover the entire viewport */
     height: 100%;
-    background-color: #fff; /* You can set any background color or background image */
-    justify-content: center;
+    /* Sets the background color of the loading screen to white */
+    background-color: #fff;
+    /* Sets the display property of the loading screen to flex */
     display: flex;
+    /* Centers the contents of the loading screen horizontally */
+    justify-content: center;
+    /* Centers the contents of the loading screen vertically */
     align-items: center;
+    /* Sets the stacking order of the loading screen, ensuring it appears above other content */
     z-index: 9999;
 }
 
