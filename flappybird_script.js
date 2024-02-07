@@ -1,9 +1,9 @@
 // Third Game Flappy Bird
 
-// Hide loading screen after 3 seconds
+// Hide loading screen after 2 seconds
 setTimeout(function () {
     document.getElementById('loading-screen').style.display = 'none';
-}, 1500);
+}, 2000);
   
 // Wait for the page to fully load
 window.addEventListener('load', function() {
