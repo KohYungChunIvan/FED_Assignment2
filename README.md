@@ -162,3 +162,5 @@ https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-saint-ger
 https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-reverso-40mm-reversible-belt-damier-infini-men-s-belts--M0670U_PM2_Front%20view.png?wid=1300&hei=1300
 
 https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-city-pin-35mm-belt-men-s-belts--M0728V_PM2_Front%20view.png?wid=1300&hei=1300
+
+https://lottiefiles.com/animations/mori-animation-o0aeh8dQ4N
