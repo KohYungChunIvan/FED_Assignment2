@@ -2,41 +2,124 @@ Mori: E-Commerce Bag Store
 
 Overview
 
-Mori is not just a place to buy bags — it's an experience. With every purchase, customers don't just get a product; they earn a chance to engage with the brand further through a point-based reward system. This gamification aspect makes shopping more than a transaction; it turns it into a fun, exciting activity that customers look forward to.
+Mori is not just a place to buy luxuries — it's an experience. With every purchase, customers don't just get a product; they earn a chance to engage with the brand further through a point-based reward system. With luxury redeemables and engaging rewardable games, the gamifications make shopping more than a simple transaction; it becomes a fun, exciting experience that customers look forward to and immerse themselves in.
 
 Design Process
 
-The platform is designed with a deep understanding of the users' shopping behaviors and desires. It recognizes that customers seek more than just products; they want to feel valued and entertained. Mori's user interface is streamlined to minimize friction, making the process from browsing to buying to earning rewards as smooth and enjoyable as possible.
+The platform is designed with a deep understanding of the users' shopping behaviors and desires. It recognizes that customers seek more than just products; they want to feel valued and entertained. With Mori's user interface is streamlined to minimize friction, making the process from browsing to buying to earning rewards as smooth and enjoyable as possible.
 
+Design Rationale
+
+- Overall
+
+A minimialist and gentle aesthetic.
+
+Simple and gentle color texture to reflect gentleness.
+
+Font has no decorative strokes to keep its simplicity.
+
+- index.html
+
+Automatic carousel with content to attract user attention.
+
+Featured Products to showcase the featured products of the website.
+
+Video to maintain user attention.
+
+Array to keep users interested.
+
+- backpack.html, handbag.html, wallet.html
+
+Products not too cramped and not too wide to allow breathing space.
+
+- login.html, signup.html
+
+Examples to assist user to what to type.
+
+- rewards.html
+
+Picture to keep user appealed.
+
+Start with description to help user understand the point system.
+
+Layout is orderly and Games and Redeemables split in different sections to avoid confusion.
+
+- contact.html
+
+appropriate input boxes along with examples to assist user.
+
+- snake.html
+
+background to make game more appealing.
+
+guide on left on how point system works to help users understand while game on the right.
+
+- spinwheel.html
+
+background to make wheel more welcoming.
+
+- flappybird.html
+
+background to make game more appealing.
+
+game is adjusted higher at eye level so that it is easier to look at.
 
 User Stories Implementation:
 
 Points on Purchases:
 -Customers earn points for every dollar spent. These points are reflected in their account immediately after purchase. There could be a tier system where the more they shop, the higher the multiplier on their points earning, incentivizing consistent patronage.
 
-Spin-to-Win Game:
+Spin-the-Wheel Game:
 -Users can spend their points to spin a wheel for a chance to win coupons, additional points, or even free items. This feature not only provides instant gratification but also injects an element of surprise and excitement into the shopping experience.
 
 Redeeming Points:
 -Points can be redeemed for items, providing tangible value back to the customers. This also serves as a 'thank you' gesture, ensuring that customers feel appreciated for their loyalty.
 
+Snake Game:
+-Users can spend their points to have one chance to play snake game where more points can be potentially earned as well. This feature keeps the user entertained and injects an element of excitement and fun into the shopping experience.
+
+Flappy Bird Game:
+-Users can spend their points to play the popular Flappy Bird with the feature of able to earn points while playing. This feature challenges the user with its mechanics while providing a sense of fun to its user.
 Features
 
 Existing Features
--Spin-to-Win Feature - Engages users in a game of luck where they can win vouchers using their points.
 
+- Navigation Bar - A navigation bar to provide users with easy access to different parts of the website.
 
+- Sign Up Form - A Sign Up Page where particulars are entered to register an account. Particulars are stored and linked to the account for future login.
 
-Features Left to Implement
--Points Accumulation System - A backend system that tracks customer purchases and allocates points accordingly. This system needs to be robust to handle multiple transactions simultaneously and reflect points in real-time.
+- Login Form - A Login Page where email and password are entered to login to the desired account for usage.
 
--Item Redemption with Points - A catalog of items available for point redemption will be integrated. Users can browse this catalog and choose to spend their points on these items instead of purchasing with cash.
+- Logout Button - A logout button to logout out of active account.
 
--Referral Program - Customers can refer friends to earn more points. This not only encourages current customers to bring in new ones but also expands the brand's reach organically.
+- Automatic Carousel - A carousel to display multiple content within a limited space in a rotating fashion.
+
+- Add to Cart/ Redeem Buttons - Buttons which are used to add to cart either as a purchasable or a redeemable item.
+
+- Aesthetic Array - An array not only to make the website more appealing but as a way to access to different parts of the website.'
+
+- Cart Feature - A cart system to display and store items that are in cart. When ready to checkout, there is a checkout button to checkout and reset the cart.
+
+- Feedback Form - A Contact Us form where feedback can be given and submitted. In return, a message is shown and resets the form.
+
+- Points Accumulation System - A backend system that tracks registered customer purchases and allocates points accordingly which can be used for redemption.
+
+- Redemption with Points - A selection of choices consisting of items and games for redemption. Users can browse the catalog and can redeem with their points instead if cash.
+
+- Snake Game - A redeemable game where the snake grows by 1 block everytime the head overlaps the randomly spawned red square. the objective is to overlap as many as possible without touching the walls or itself. Once game over, the game concludes, highest score is updated and points are added to existing points and returns back to the website.
+
+- Spin The Wheel Feature - A redeemable luck-based game where a wheel is used to decide the amount of points earned from the spin. Afterwards, points are added into existing ponts and it returns back to the website.
+
+- Flappy Bird Game - A redeemable game where you play as the bird and must avoid the different height levels of the obstacle. For each obstacle crossed, one point is added. The objective is to survive as long as possible without dying. Once game over, game concludes, highest score is updated, points are added to existing points and returns back to the website.
+
+- Custom mori loading animation - A customized mori loader for each time a new page is loaded.
 
 Technologies Used
 -HTML/CSS/Bootstrap - For structuring and styling the website's content.
 -JavaScript - To enhance interactivity, particularly in the points system and the spin-to-win feature.
+-LottieFiles - To enhance user interface.
+-Adobe Photoshop - To whiten the background of the products.
+-Adobe Illustrator - To form the loading text
 
 
 Testing
@@ -47,11 +130,17 @@ Manual Testing Scenarios
 Make a purchase and check if points are correctly added.
 Verify the points-to-purchase ratio is consistent.
 
--Spin-to-Win Feature:
+-Add-To-Cart Feature:
+Click on Add to Cart Button.
+Starting from the leftmost, add a cross to allow removal, put the item picture, the item name and item price on the same column, item name is above the item price.
+
+-Spin-the-Wheel Feature:
 Attempt to spin the wheel without enough points and check for error handling.
 Spin the wheel with sufficient points and verify voucher generation.
 Cross-Browser and Responsiveness Testing
 Tested across multiple browsers (Chrome, Firefox, Safari) and devices (desktop, tablet, mobile) to ensure compatibility and responsiveness.
+
+
 
 
 
@@ -163,4 +252,4 @@ https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-reverso-4
 
 https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-city-pin-35mm-belt-men-s-belts--M0728V_PM2_Front%20view.png?wid=1300&hei=1300
 
-https://lottiefiles.com/animations/mori-animation-o0aeh8dQ4N
+Lottie mori loading: https://lottiefiles.com/animations/mori-animation-o0aeh8dQ4N
