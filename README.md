@@ -146,3 +146,7 @@ https://ap.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-discovery
 https://i.pinimg.com/564x/e0/0e/75/e00e75d97688a03a5765fc0be89bd243.jpg
 
 https://i.pinimg.com/564x/d9/86/46/d986468a0934e4c4f147b336854483dd.jpg
+
+https://i.pinimg.com/564x/ec/b7/74/ecb774c59765eae4ea95785f84676bd9.jpg
+
+https://i.pinimg.com/736x/c8/94/4f/c8944f790a2a5ca720cd063458704b82.jpg
