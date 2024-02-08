@@ -74,7 +74,7 @@ Points on Purchases:
 -Customers earn points for every dollar spent. These points are reflected in their account immediately after purchase. There could be a tier system where the more they shop, the higher the multiplier on their points earning, incentivizing consistent patronage.
 
 Spin-the-Wheel Game:
--Users can spend their points to spin a wheel for a chance to win coupons, additional points, or even free items. This feature not only provides instant gratification but also injects an element of surprise and excitement into the shopping experience.
+-Users can spend their points to spin a wheel for a chance to win more points. This feature not only provides instant gratification but also injects an element of surprise and excitement into the shopping experience.
 
 Redeeming Points:
 -Points can be redeemed for items, providing tangible value back to the customers. This also serves as a 'thank you' gesture, ensuring that customers feel appreciated for their loyalty.
