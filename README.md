@@ -1,5 +1,9 @@
 Mori: E-Commerce Bag Store
 
+Roles and Responsibility:
+
+Koh Yung Chun Ivan : Front End and Back End coding. Kai Yu: Back End coding.
+
 Overview
 
 Mori is not just a place to buy luxuries — it's an experience. With every purchase, customers don't just get a product; they earn a chance to engage with the brand further through a point-based reward system. With luxury redeemables and engaging rewardable games, the gamifications make shopping more than a simple transaction; it becomes a fun, exciting experience that customers look forward to and immerse themselves in.
